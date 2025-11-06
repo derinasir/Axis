@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bslaomoexm58a"]
+
+[ext_resource type="Texture2D" uid="uid://cprtm1fqaf0vi" path="res://icon.svg" id="2_o5evs"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gus6r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m5ck1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gus6r"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o5evs"]
+
+[node name="MockEnemy" type="CharacterBody3D" groups=["targetable"]]
+
+[node name="LockPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1000001, 0)
+metadata/is_lock_pivot = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_gus6r")
+surface_material_override/0 = SubResource("StandardMaterial3D_m5ck1")
+
+[node name="DetectionArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+shape = SubResource("CapsuleShape3D_gus6r")
+
+[node name="Reticle" type="Sprite3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 2.3999999, 0)
+visible = false
+texture = ExtResource("2_o5evs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_o5evs")
