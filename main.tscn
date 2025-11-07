@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://1f1yrxnjl4xi"]
 
 [ext_resource type="Texture2D" uid="uid://5gmx2rx0kq2d" path="res://assets/kenney_prototype_textures/Dark/texture_01.png" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://wp38gnqmdcqs" path="res://maria.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://wp38gnqmdcqs" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bslaomoexm58a" path="res://mock_enemy.tscn" id="3_h2yge"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
