@@ -1,4 +1,4 @@
-extends PlayerState
+extends LocomotionState
 #Walk State
 
 
@@ -7,12 +7,6 @@ extends PlayerState
 
 @export_node_path("State") var sprint_state_path
 @onready var sprint_state = get_node(sprint_state_path)
-
-
-
-func enter() -> void:
-	super()
-	player.spring_arm_offset = player.SPRING_ARM_DEFAULT_OFFSET
 
 
 func physics_process(delta: float) -> State:
