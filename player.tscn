@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://wp38gnqmdcqs"]
+[gd_scene load_steps=74 format=3 uid="uid://wp38gnqmdcqs"]
 
 [ext_resource type="PackedScene" uid="uid://bsl1726vg27pm" path="res://assets/maria_animation_rig.blend" id="1_gdde5"]
 [ext_resource type="Script" uid="uid://bk4xmmrhr0cj5" path="res://scripts/player.gd" id="1_om8sx"]
@@ -31,7 +31,7 @@ height = 143.37975
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_pbfsw"]
 filter_enabled = true
-filters = ["../../CombatStateMachine/DownwardSlash", "../../CombatStateMachine/LowSlash", "Maria Model/Skeleton3D/BoneAttachment3D/Hitbox:monitorable", "Maria Model/Skeleton3D:mixamorig_LeftArm", "Maria Model/Skeleton3D:mixamorig_LeftForeArm", "Maria Model/Skeleton3D:mixamorig_LeftHand", "Maria Model/Skeleton3D:mixamorig_LeftHandIndex1", "Maria Model/Skeleton3D:mixamorig_LeftHandIndex2", "Maria Model/Skeleton3D:mixamorig_LeftHandIndex3", "Maria Model/Skeleton3D:mixamorig_LeftHandIndex4", "Maria Model/Skeleton3D:mixamorig_LeftHandMiddle1", "Maria Model/Skeleton3D:mixamorig_LeftHandMiddle2", "Maria Model/Skeleton3D:mixamorig_LeftHandMiddle3", "Maria Model/Skeleton3D:mixamorig_LeftHandMiddle4", "Maria Model/Skeleton3D:mixamorig_LeftHandPinky1", "Maria Model/Skeleton3D:mixamorig_LeftHandPinky2", "Maria Model/Skeleton3D:mixamorig_LeftHandPinky3", "Maria Model/Skeleton3D:mixamorig_LeftHandPinky4", "Maria Model/Skeleton3D:mixamorig_LeftHandRing1", "Maria Model/Skeleton3D:mixamorig_LeftHandRing2", "Maria Model/Skeleton3D:mixamorig_LeftHandRing3", "Maria Model/Skeleton3D:mixamorig_LeftHandRing4", "Maria Model/Skeleton3D:mixamorig_LeftHandThumb1", "Maria Model/Skeleton3D:mixamorig_LeftHandThumb2", "Maria Model/Skeleton3D:mixamorig_LeftHandThumb3", "Maria Model/Skeleton3D:mixamorig_LeftHandThumb4", "Maria Model/Skeleton3D:mixamorig_LeftShoulder", "Maria Model/Skeleton3D:mixamorig_Neck", "Maria Model/Skeleton3D:mixamorig_RightArm", "Maria Model/Skeleton3D:mixamorig_RightForeArm", "Maria Model/Skeleton3D:mixamorig_RightHand", "Maria Model/Skeleton3D:mixamorig_RightHandIndex1", "Maria Model/Skeleton3D:mixamorig_RightHandIndex2", "Maria Model/Skeleton3D:mixamorig_RightHandIndex3", "Maria Model/Skeleton3D:mixamorig_RightHandIndex4", "Maria Model/Skeleton3D:mixamorig_RightHandMiddle1", "Maria Model/Skeleton3D:mixamorig_RightHandMiddle2", "Maria Model/Skeleton3D:mixamorig_RightHandMiddle3", "Maria Model/Skeleton3D:mixamorig_RightHandMiddle4", "Maria Model/Skeleton3D:mixamorig_RightHandPinky1", "Maria Model/Skeleton3D:mixamorig_RightHandPinky2", "Maria Model/Skeleton3D:mixamorig_RightHandPinky3", "Maria Model/Skeleton3D:mixamorig_RightHandPinky4", "Maria Model/Skeleton3D:mixamorig_RightHandRing1", "Maria Model/Skeleton3D:mixamorig_RightHandRing2", "Maria Model/Skeleton3D:mixamorig_RightHandRing3", "Maria Model/Skeleton3D:mixamorig_RightHandRing4", "Maria Model/Skeleton3D:mixamorig_RightHandThumb1", "Maria Model/Skeleton3D:mixamorig_RightHandThumb2", "Maria Model/Skeleton3D:mixamorig_RightHandThumb3", "Maria Model/Skeleton3D:mixamorig_RightHandThumb4", "Maria Model/Skeleton3D:mixamorig_RightShoulder", "Maria Model/Skeleton3D:mixamorig_Spine", "Maria Model/Skeleton3D:mixamorig_Spine1", "Maria Model/Skeleton3D:mixamorig_Spine2"]
+filters = ["../../AudioStreamPlayer3D", "../../CombatStateMachine/DownwardSlash", "../../CombatStateMachine/LowSlash", "Maria Model/Skeleton3D/BoneAttachment3D/Hitbox:monitorable", "Maria Model/Skeleton3D:mixamorig_LeftArm", "Maria Model/Skeleton3D:mixamorig_LeftForeArm", "Maria Model/Skeleton3D:mixamorig_LeftHand", "Maria Model/Skeleton3D:mixamorig_LeftHandIndex1", "Maria Model/Skeleton3D:mixamorig_LeftHandIndex2", "Maria Model/Skeleton3D:mixamorig_LeftHandIndex3", "Maria Model/Skeleton3D:mixamorig_LeftHandIndex4", "Maria Model/Skeleton3D:mixamorig_LeftHandMiddle1", "Maria Model/Skeleton3D:mixamorig_LeftHandMiddle2", "Maria Model/Skeleton3D:mixamorig_LeftHandMiddle3", "Maria Model/Skeleton3D:mixamorig_LeftHandMiddle4", "Maria Model/Skeleton3D:mixamorig_LeftHandPinky1", "Maria Model/Skeleton3D:mixamorig_LeftHandPinky2", "Maria Model/Skeleton3D:mixamorig_LeftHandPinky3", "Maria Model/Skeleton3D:mixamorig_LeftHandPinky4", "Maria Model/Skeleton3D:mixamorig_LeftHandRing1", "Maria Model/Skeleton3D:mixamorig_LeftHandRing2", "Maria Model/Skeleton3D:mixamorig_LeftHandRing3", "Maria Model/Skeleton3D:mixamorig_LeftHandRing4", "Maria Model/Skeleton3D:mixamorig_LeftHandThumb1", "Maria Model/Skeleton3D:mixamorig_LeftHandThumb2", "Maria Model/Skeleton3D:mixamorig_LeftHandThumb3", "Maria Model/Skeleton3D:mixamorig_LeftHandThumb4", "Maria Model/Skeleton3D:mixamorig_LeftShoulder", "Maria Model/Skeleton3D:mixamorig_Neck", "Maria Model/Skeleton3D:mixamorig_RightArm", "Maria Model/Skeleton3D:mixamorig_RightForeArm", "Maria Model/Skeleton3D:mixamorig_RightHand", "Maria Model/Skeleton3D:mixamorig_RightHandIndex1", "Maria Model/Skeleton3D:mixamorig_RightHandIndex2", "Maria Model/Skeleton3D:mixamorig_RightHandIndex3", "Maria Model/Skeleton3D:mixamorig_RightHandIndex4", "Maria Model/Skeleton3D:mixamorig_RightHandMiddle1", "Maria Model/Skeleton3D:mixamorig_RightHandMiddle2", "Maria Model/Skeleton3D:mixamorig_RightHandMiddle3", "Maria Model/Skeleton3D:mixamorig_RightHandMiddle4", "Maria Model/Skeleton3D:mixamorig_RightHandPinky1", "Maria Model/Skeleton3D:mixamorig_RightHandPinky2", "Maria Model/Skeleton3D:mixamorig_RightHandPinky3", "Maria Model/Skeleton3D:mixamorig_RightHandPinky4", "Maria Model/Skeleton3D:mixamorig_RightHandRing1", "Maria Model/Skeleton3D:mixamorig_RightHandRing2", "Maria Model/Skeleton3D:mixamorig_RightHandRing3", "Maria Model/Skeleton3D:mixamorig_RightHandRing4", "Maria Model/Skeleton3D:mixamorig_RightHandThumb1", "Maria Model/Skeleton3D:mixamorig_RightHandThumb2", "Maria Model/Skeleton3D:mixamorig_RightHandThumb3", "Maria Model/Skeleton3D:mixamorig_RightHandThumb4", "Maria Model/Skeleton3D:mixamorig_RightShoulder", "Maria Model/Skeleton3D:mixamorig_Spine", "Maria Model/Skeleton3D:mixamorig_Spine1", "Maria Model/Skeleton3D:mixamorig_Spine2"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qtqh7"]
 animation = &"slash_downward_slash"
@@ -235,10 +235,24 @@ xfade_curve = SubResource("Curve_5tmop")
 advance_mode = 2
 advance_expression = "velocity.y < 0"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_khis8"]
+advance_mode = 2
+advance_expression = "velocity.y < 0"
+
+[sub_resource type="Curve" id="Curve_7lmhl"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b88wv"]
+xfade_time = 0.2
+xfade_curve = SubResource("Curve_7lmhl")
+advance_mode = 2
+advance_expression = "is_on_floor()"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7lmhl"]
 states/End/position = Vector2(1107, 92)
 states/Falling/node = SubResource("AnimationNodeBlendTree_pbfsw")
-states/Falling/position = Vector2(521, 207)
+states/Falling/position = Vector2(449, 214)
 states/FreeLocomotion/node = SubResource("AnimationNodeBlendSpace1D_7lmhl")
 states/FreeLocomotion/position = Vector2(449, 92)
 states/JumpRaise/node = SubResource("AnimationNodeAnimation_dx0e4")
@@ -248,11 +262,11 @@ states/TargetedLocomotion/node = SubResource("AnimationNodeBlendSpace2D_jm5j8")
 states/TargetedLocomotion/position = Vector2(678, 92)
 states/idle/node = SubResource("AnimationNodeAnimation_7hik5")
 states/idle/position = Vector2(245, 92)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_j5n4i"), "idle", "FreeLocomotion", SubResource("AnimationNodeStateMachineTransition_pbfsw"), "FreeLocomotion", "idle", SubResource("AnimationNodeStateMachineTransition_5tmop"), "FreeLocomotion", "TargetedLocomotion", SubResource("AnimationNodeStateMachineTransition_ek41f"), "TargetedLocomotion", "FreeLocomotion", SubResource("AnimationNodeStateMachineTransition_7ahtn"), "TargetedLocomotion", "JumpRaise", SubResource("AnimationNodeStateMachineTransition_jm5j8"), "idle", "JumpRaise", SubResource("AnimationNodeStateMachineTransition_hiqhm"), "FreeLocomotion", "JumpRaise", SubResource("AnimationNodeStateMachineTransition_tkwlq"), "FreeLocomotion", "Falling", SubResource("AnimationNodeStateMachineTransition_7hik5"), "TargetedLocomotion", "Falling", SubResource("AnimationNodeStateMachineTransition_qtqh7"), "Falling", "FreeLocomotion", SubResource("AnimationNodeStateMachineTransition_2wuci"), "Falling", "TargetedLocomotion", SubResource("AnimationNodeStateMachineTransition_iruf7"), "JumpRaise", "Falling", SubResource("AnimationNodeStateMachineTransition_hl5qd")]
-graph_offset = Vector2(-12.717255, -63)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_j5n4i"), "idle", "FreeLocomotion", SubResource("AnimationNodeStateMachineTransition_pbfsw"), "FreeLocomotion", "idle", SubResource("AnimationNodeStateMachineTransition_5tmop"), "FreeLocomotion", "TargetedLocomotion", SubResource("AnimationNodeStateMachineTransition_ek41f"), "TargetedLocomotion", "FreeLocomotion", SubResource("AnimationNodeStateMachineTransition_7ahtn"), "TargetedLocomotion", "JumpRaise", SubResource("AnimationNodeStateMachineTransition_jm5j8"), "idle", "JumpRaise", SubResource("AnimationNodeStateMachineTransition_hiqhm"), "FreeLocomotion", "JumpRaise", SubResource("AnimationNodeStateMachineTransition_tkwlq"), "FreeLocomotion", "Falling", SubResource("AnimationNodeStateMachineTransition_7hik5"), "TargetedLocomotion", "Falling", SubResource("AnimationNodeStateMachineTransition_qtqh7"), "Falling", "FreeLocomotion", SubResource("AnimationNodeStateMachineTransition_2wuci"), "Falling", "TargetedLocomotion", SubResource("AnimationNodeStateMachineTransition_iruf7"), "JumpRaise", "Falling", SubResource("AnimationNodeStateMachineTransition_hl5qd"), "idle", "Falling", SubResource("AnimationNodeStateMachineTransition_khis8"), "Falling", "idle", SubResource("AnimationNodeStateMachineTransition_b88wv")]
+graph_offset = Vector2(-62.717255, 2)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_pgbbb"]
-graph_offset = Vector2(-524.8954, 30.747574)
+graph_offset = Vector2(-563, 126)
 nodes/Locomotion/node = SubResource("AnimationNodeStateMachine_7lmhl")
 nodes/Locomotion/position = Vector2(-260, 100)
 nodes/Combat/node = SubResource("AnimationNodeStateMachine_b88wv")
@@ -302,8 +316,8 @@ shape = SubResource("CapsuleShape3D_om8sx")
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Visuals/maria_animation_rig/Maria Model" index="0"]
-bones/0/position = Vector3(-1.8122962, 2.999065, -89.78342)
-bones/0/rotation = Quaternion(-0.6871732, -0.25572425, 0.2588475, 0.6288053)
+bones/0/position = Vector3(0.0063506216, 1.5134535, -99.40805)
+bones/0/rotation = Quaternion(-0.66945916, -0.09909212, 0.09094018, 0.73057175)
 bones/1/position = Vector3(0.004652034, 5.2453175, 0.2588343)
 bones/1/rotation = Quaternion(0.17256026, 0.019894145, 0.017212382, 0.9846477)
 bones/2/position = Vector3(1.5494886e-06, 11.066815, -2.5629437e-05)
@@ -311,7 +325,7 @@ bones/2/rotation = Quaternion(-0.0028687306, 0.010431574, -0.003745064, 0.999934
 bones/3/position = Vector3(1.18278024e-07, 8.141912, 3.1087864e-05)
 bones/3/rotation = Quaternion(0.09923728, 0.0110522695, -0.0039690332, 0.9949946)
 bones/4/rotation = Quaternion(-0.10516618, 0.015094527, 0.010295424, 0.99428684)
-bones/5/rotation = Quaternion(0.018164666, 0.06258955, 0.018167567, 0.9977087)
+bones/5/rotation = Quaternion(-0.12422061, 0.06359574, -0.03661101, 0.9895375)
 bones/7/rotation = Quaternion(-0.5966473, -0.40762502, 0.3592911, -0.5905623)
 bones/8/position = Vector3(-1.3557989e-05, 9.14368, -2.5742352e-06)
 bones/8/rotation = Quaternion(0.55712914, -0.09583763, 0.2426966, 0.7883658)
@@ -396,27 +410,27 @@ bones/52/rotation = Quaternion(0.37335825, -0.00031925042, -0.00060607266, 0.927
 bones/53/position = Vector3(-7.248385e-07, 1.2975874, 1.8949086e-06)
 bones/53/rotation = Quaternion(0.4829382, 0.0004322212, 0.0010074447, 0.87565374)
 bones/54/position = Vector3(-9.285759e-07, 2.012996, 1.9082036e-06)
-bones/55/position = Vector3(9.688754, -5.6852555, -1.6886226)
-bones/55/rotation = Quaternion(0.12722823, 0.6235147, 0.763084, -0.112895474)
-bones/56/position = Vector3(9.868274e-07, 43.167957, 2.2974444e-05)
-bones/56/rotation = Quaternion(-0.9084433, 0.007903402, -0.017991262, 0.41754615)
-bones/57/position = Vector3(2.9014386e-06, 40.817738, -2.4814913e-06)
-bones/57/rotation = Quaternion(0.25302354, -0.05731488, -0.120086536, 0.9582658)
-bones/58/position = Vector3(4.7032609e-07, 18.000008, -1.6698855e-06)
-bones/58/rotation = Quaternion(0.5222091, -0.0106911, -0.012964055, 0.85265195)
-bones/59/position = Vector3(2.6891396e-06, 13.768201, -1.6290873e-06)
-bones/60/position = Vector3(-9.688771, -5.685197, -1.688623)
-bones/60/rotation = Quaternion(-0.14472423, 0.6161746, 0.756727, 0.16354837)
-bones/61/position = Vector3(-1.9944005e-06, 43.168, 2.4666402e-05)
-bones/61/rotation = Quaternion(-0.9224626, -0.045554694, 0.10290784, 0.36932036)
-bones/62/position = Vector3(1.8199419e-06, 40.817715, -8.006662e-06)
-bones/62/rotation = Quaternion(0.007487629, 0.061204262, 0.13983102, 0.98825365)
-bones/63/position = Vector3(2.466702e-07, 17.999989, 1.5536762e-07)
-bones/63/rotation = Quaternion(0.49073082, 0.008934842, 0.012556065, 0.87117493)
-bones/64/position = Vector3(3.978106e-06, 13.768164, -9.926154e-07)
+bones/55/position = Vector3(9.688754, -5.685233, -1.6886241)
+bones/55/rotation = Quaternion(0.04940211, 0.29239833, 0.9523641, -0.07117118)
+bones/56/position = Vector3(-2.5894524e-06, 43.16797, 1.591859e-05)
+bones/56/rotation = Quaternion(-0.30891806, -0.036917586, 0.020548873, 0.9501497)
+bones/57/position = Vector3(4.5675883e-06, 40.817726, -4.5743236e-06)
+bones/57/rotation = Quaternion(0.2914772, -0.0356118, -0.028530482, 0.9554888)
+bones/58/position = Vector3(-1.630595e-07, 18.000011, -4.6231644e-06)
+bones/58/rotation = Quaternion(0.5139555, -0.005717512, -0.024413366, 0.8574504)
+bones/59/position = Vector3(3.5899614e-06, 13.768198, 1.1062344e-07)
+bones/60/position = Vector3(-9.68877, -5.685183, -1.6886227)
+bones/60/rotation = Quaternion(-0.10500144, 0.13990453, 0.980465, 0.08994415)
+bones/61/position = Vector3(-1.8751912e-06, 43.168003, 2.4260144e-05)
+bones/61/rotation = Quaternion(-0.32142526, 0.061011553, -0.0006933061, 0.9449672)
+bones/62/position = Vector3(6.010563e-07, 40.817703, -7.9876345e-06)
+bones/62/rotation = Quaternion(0.4252318, 0.04799451, 0.07511969, 0.900684)
+bones/63/position = Vector3(1.128687e-06, 17.99999, 2.6994949e-06)
+bones/63/rotation = Quaternion(0.5208511, 0.0036966638, 0.020978862, 0.85338175)
+bones/64/position = Vector3(4.1648364e-06, 13.768166, -9.5303403e-07)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Visuals/maria_animation_rig/Maria Model/Skeleton3D" index="0"]
-transform = Transform3D(-0.25894582, 0.031898722, 0.96536523, 0.01806442, 0.9994393, -0.02817884, -0.96572304, 0.010141699, -0.25937694, -26.275126, 28.071304, -95.87619)
+transform = Transform3D(-0.20974797, 0.48542106, 0.84874773, 0.29540786, 0.85895145, -0.41825387, -0.9320623, 0.16299866, -0.3235605, -10.198453, 35.56894, -99.91304)
 bone_name = "mixamorig_RightHand"
 bone_idx = 34
 
@@ -521,6 +535,8 @@ hurtbox = NodePath("../Hurtbox")
 hitbox = NodePath("../Visuals/maria_animation_rig/Maria Model/Skeleton3D/BoneAttachment3D/Hitbox")
 
 [node name="Hurtbox" parent="." instance=ExtResource("19_pylmc")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 
 [connection signal="entered" from="LocomotionStateMachine/Airborne" to="AnimationTree" method="_on_airborne_entered"]
 [connection signal="body_entered" from="TargetManager" to="TargetManager" method="_on_body_entered"]

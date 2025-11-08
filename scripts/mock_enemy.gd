@@ -15,7 +15,7 @@ func _ready() -> void:
 
 
 func _on_combat_manager_died(_data: DamageData) -> void:
-	queue_free()
+	%AnimationPlayer.play("die")
 
 
 func _on_combat_manager_took_damage(_data: DamageData) -> void:
