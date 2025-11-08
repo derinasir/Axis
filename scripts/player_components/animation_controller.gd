@@ -34,7 +34,6 @@ func _process(delta: float) -> void:
 	set("parameters/Locomotion/FreeLocomotion/blend_position", locomotion_blend.length() -1)
 	set("parameters/Locomotion/TargetedLocomotion/blend_position", locomotion_blend)
 	set("parameters/Blend2/blend_amount", 1 if player.is_attacking else 0)
-	print(get("parameters/Locomotion/playback").get_current_node())
 
 
 func _on_airborne_entered(state_name: String) -> void:
