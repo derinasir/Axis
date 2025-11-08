@@ -8,6 +8,9 @@ extends LocomotionState
 @export_node_path("State") var sprint_state_path
 @onready var sprint_state = get_node(sprint_state_path)
 
+@export_node_path("State") var airborne_state_path
+@onready var airborne_state = get_node(airborne_state_path)
+
 
 func physics_process(delta: float) -> State:
 	super(delta)
@@ -21,4 +24,8 @@ func input(event: InputEvent) -> State:
 	super(event)
 	if event.is_action_pressed("Sprint"):
 		return sprint_state
+	
+	if event.is_action_pressed("Jump"):
+		return airborne_state
+	
 	return null

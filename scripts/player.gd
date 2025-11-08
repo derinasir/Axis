@@ -43,9 +43,8 @@ func _process(delta: float) -> void:
 	locomotion_state_machine.process(delta)
 	combat_state_machine.process(delta)
 	
-	print(combat_state_machine.current_state.combo_window_open)
-	#print(combat_state_machine.current_state)	
-	#print(is_attacking)
+	#print(combat_state_machine.current_state)
+	#print(locomotion_state_machine.current_state.name)
 
 
 func _physics_process(delta: float) -> void:

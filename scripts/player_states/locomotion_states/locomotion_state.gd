@@ -5,6 +5,7 @@ extends PlayerState
 @export var free_speed := 1.0
 @export var target_locked_speed := 1.0
 
+var gravity_scale = 1
 
 var to_target: Vector3
 
@@ -14,13 +15,14 @@ func enter() -> void:
 	player.spring_arm_offset = player.SPRING_ARM_DEFAULT_OFFSET
 
 
-func physics_process(_delta: float) -> State:
+func physics_process(delta: float) -> State:
 	if not player.is_attacking:
 		player.speed = target_locked_speed if player.is_target_locked else free_speed
 	else:
 		player.speed = 0
 	
-	player.velocity = player.direction_vec * player.speed
+	player.velocity.x = player.direction_vec.x * player.speed
+	player.velocity.z = player.direction_vec.z * player.speed
 		
 	
 	if player.is_target_locked:
@@ -35,7 +37,7 @@ func physics_process(_delta: float) -> State:
 
 	
 	var target_rotation
-	if player.is_target_locked:
+	if player.is_target_locked and player.is_on_floor():
 		target_rotation = atan2(-to_target.x, -to_target.z)
 		player.rotation.y = lerp_angle(player.rotation.y, target_rotation, 0.09)
 	else:
@@ -43,6 +45,11 @@ func physics_process(_delta: float) -> State:
 		if player.velocity:
 			player.rotation.y = lerp_angle(player.rotation.y, target_rotation, 0.09)
 
+	
+	
+	if not player.is_on_floor():
+		player.velocity.y += player.get_gravity().y * gravity_scale * delta
+	
 	
 	return null
 

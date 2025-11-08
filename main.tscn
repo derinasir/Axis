@@ -46,7 +46,7 @@ visible = false
 size = Vector3(1, 4.4072876, 1)
 
 [node name="Maria" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.5104046, -0.35723948, -5.511342)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.5104046, 1.7762868, -5.511342)
 
 [node name="MockEnemy" parent="." instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4866958, -0.32315797, -1.5852051)
