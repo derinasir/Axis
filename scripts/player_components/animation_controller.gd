@@ -30,12 +30,12 @@ func _process(delta: float) -> void:
 	
 	
 	desired_locomotion_blend = player.input_dir
-	desired_locomotion_blend *= 2 if player.state_machine.current_state.name == "Sprint" else 1
+	desired_locomotion_blend *= 2 if player.locomotion_state_machine.current_state.name == "Sprint" else 1
 	
 	
 	lock_state_blend = lerp(lock_state_blend, float(desired_lock_state_blend), 10 * delta)
 	locomotion_blend = lerp(locomotion_blend, desired_locomotion_blend, 10 * delta)
 	
-	set("parameters/TargetLockBlend/blend_amount", lock_state_blend)
-	set("parameters/FreeRoamLocomotion/blend_position", locomotion_blend.length())
-	set("parameters/TargetLocomotion/blend_position", locomotion_blend)
+	set("parameters/Locomotion/TargetLockBlend/blend_amount", lock_state_blend)
+	set("parameters/Locomotion/FreeRoamLocomotion/blend_position", locomotion_blend.length())
+	set("parameters/Locomotion/TargetLocomotion/blend_position", locomotion_blend)

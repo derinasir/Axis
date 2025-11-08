@@ -15,8 +15,13 @@ func enter() -> void:
 
 
 func physics_process(_delta: float) -> State:
-	player.velocity = player.direction_vec * (target_locked_speed if player.is_target_locked else free_speed)
+	if not player.is_attacking:
+		player.speed = target_locked_speed if player.is_target_locked else free_speed
+	else:
+		player.speed = 0
 	
+	player.velocity = player.direction_vec * player.speed
+		
 	
 	if player.is_target_locked:
 		to_target = (player.current_target.global_position - player.global_position)
