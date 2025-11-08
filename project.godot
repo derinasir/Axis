@@ -28,6 +28,7 @@ version_control/autoload_on_startup=true
 [global_group]
 
 targetable=""
+hitbox="Common group for all hitbox nodes"
 
 [input]
 

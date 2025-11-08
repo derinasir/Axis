@@ -25,7 +25,7 @@ func physics_process(delta: float) -> State:
 	player.velocity.z = player.direction_vec.z * player.speed
 		
 	
-	if player.is_target_locked:
+	if player.is_target_locked and player.current_target:
 		to_target = (player.current_target.global_position - player.global_position)
 		player.direction_vec = transform_to_target_space(player.direction_vec)
 	else:

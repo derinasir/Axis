@@ -64,6 +64,9 @@ func update_free_camera(delta: float) -> void:
 
 
 func update_lock_camera(delta: float) -> void:
+	if not player.current_target:
+		return
+	
 	var target_pos = player.current_target.global_position
 	var dir = (target_pos - global_position).normalized()
 

@@ -22,7 +22,7 @@ func physics_process(delta: float) -> State:
 
 func input(event: InputEvent) -> State:
 	super(event)
-	if event.is_action_pressed("Sprint"):
+	if event.is_action("Sprint"):
 		return sprint_state
 	
 	if event.is_action_pressed("Jump"):
