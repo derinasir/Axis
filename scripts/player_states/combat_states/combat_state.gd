@@ -7,6 +7,7 @@ extends PlayerState
 @onready var not_attacking_state = get_node(not_attacking_state_path)
 
 var anim_state_machine: AnimationNodeStateMachinePlayback
+var combo_window_open := false
 var return_not_attacking_state := false
 
 func _ready() -> void:
@@ -35,3 +36,10 @@ func process(delta) -> State:
 func _on_AnimationTree_animation_finished(anim_name: String):
 	if anim_name == animation_name:
 		return_not_attacking_state = true
+
+
+func _open_combo_window():
+	combo_window_open = true
+
+func _close_combo_window():
+	combo_window_open = false

@@ -9,7 +9,7 @@ extends CombatState
 func input(event: InputEvent) -> State:
 	super(event)
 	
-	if event.is_action_pressed("Attack"):
+	if event.is_action_pressed("Attack") and combo_window_open:
 		anim_state_machine.travel(power_slash_state.animation_name)
 		return power_slash_state
 	

@@ -4,6 +4,7 @@ extends PlayerState
 @export_node_path("State") var downward_slash_state_path
 @onready var downward_slash_state = get_node(downward_slash_state_path)
 
+var combo_window_open := false
 
 func enter() -> void:
 	super()
