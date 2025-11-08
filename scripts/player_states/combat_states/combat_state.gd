@@ -18,13 +18,15 @@ func enter() -> void:
 	player.is_attacking = true
 	return_not_attacking_state = false
 	
-	anim_state_machine = %AnimationTree.get("parameters/playback")
+	anim_state_machine = %AnimationTree.get("parameters/Combat/playback")
 	anim_state_machine.travel(animation_name)
-
 
 
 func process(delta) -> State:
 	super(delta)
+	
+	#print(anim_state_machine.get_current_node())
+
 	
 	if return_not_attacking_state:
 		return not_attacking_state
@@ -43,3 +45,4 @@ func _open_combo_window():
 
 func _close_combo_window():
 	combo_window_open = false
+	
