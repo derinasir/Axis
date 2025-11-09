@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://1f1yrxnjl4xi"]
 
-[ext_resource type="Texture2D" uid="uid://5gmx2rx0kq2d" path="res://assets/kenney_prototype_textures/Dark/texture_01.png" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://wp38gnqmdcqs" path="res://player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://bslaomoexm58a" path="res://mock_enemy.tscn" id="3_h2yge"]
-[ext_resource type="Script" uid="uid://bhqmmiil3ivhf" path="res://scripts/custom_resources/Stats.gd" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://5gmx2rx0kq2d" path="res://assets/kenney_prototype_textures/Dark/texture_01.png" id="1_hcetx"]
+[ext_resource type="PackedScene" uid="uid://wp38gnqmdcqs" path="res://players/maria.tscn" id="2_w0bur"]
+[ext_resource type="PackedScene" uid="uid://bslaomoexm58a" path="res://entities/mock_enemy.tscn" id="3_68ryv"]
+[ext_resource type="Script" uid="uid://bhqmmiil3ivhf" path="res://scripts/custom_resources/Stats.gd" id="4_dwqim"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -19,11 +19,11 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
-albedo_texture = ExtResource("1_0xm2m")
+albedo_texture = ExtResource("1_hcetx")
 uv1_triplanar = true
 
 [sub_resource type="Resource" id="Resource_lquwl"]
-script = ExtResource("4_1bvp3")
+script = ExtResource("4_dwqim")
 health = 100.0
 metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
 
@@ -71,47 +71,47 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.646, -3)
 use_collision = true
 size = Vector3(3, 2, 1)
 
-[node name="Maria" parent="." instance=ExtResource("1_ig7tw")]
+[node name="Maria" parent="." instance=ExtResource("2_w0bur")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.5104046, 1.7762868, -5.511342)
 
 [node name="Enemies" type="Node3D" parent="."]
 
-[node name="MockEnemy" parent="Enemies" instance=ExtResource("3_h2yge")]
+[node name="MockEnemy" parent="Enemies" instance=ExtResource("3_68ryv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.386696, -0.32315797, -2.185205)
 stats = SubResource("Resource_lquwl")
 
-[node name="MockEnemy2" parent="Enemies" instance=ExtResource("3_h2yge")]
+[node name="MockEnemy2" parent="Enemies" instance=ExtResource("3_68ryv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.483617, -0.32315797, 4.272908)
 stats = SubResource("Resource_lquwl")
 
-[node name="MockEnemy3" parent="Enemies" instance=ExtResource("3_h2yge")]
+[node name="MockEnemy3" parent="Enemies" instance=ExtResource("3_68ryv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4803534, -0.32315844, 7.7906246)
 stats = SubResource("Resource_lquwl")
 
-[node name="MockEnemy4" parent="Enemies" instance=ExtResource("3_h2yge")]
+[node name="MockEnemy4" parent="Enemies" instance=ExtResource("3_68ryv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.719647, -0.32315844, -6.7093754)
 stats = SubResource("Resource_lquwl")
 
-[node name="MockEnemy5" parent="Enemies" instance=ExtResource("3_h2yge")]
+[node name="MockEnemy5" parent="Enemies" instance=ExtResource("3_68ryv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7803535, -0.32315844, -12.109376)
 stats = SubResource("Resource_lquwl")
 
-[node name="MockEnemy6" parent="Enemies" instance=ExtResource("3_h2yge")]
+[node name="MockEnemy6" parent="Enemies" instance=ExtResource("3_68ryv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.319647, -0.32315844, -14.609376)
 stats = SubResource("Resource_lquwl")
 
-[node name="MockEnemy7" parent="Enemies" instance=ExtResource("3_h2yge")]
+[node name="MockEnemy7" parent="Enemies" instance=ExtResource("3_68ryv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.319647, -0.32315844, 0.49062443)
 stats = SubResource("Resource_lquwl")
 
-[node name="MockEnemy8" parent="Enemies" instance=ExtResource("3_h2yge")]
+[node name="MockEnemy8" parent="Enemies" instance=ExtResource("3_68ryv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.580355, -0.32315844, 3.5906246)
 stats = SubResource("Resource_lquwl")
 
-[node name="MockEnemy9" parent="Enemies" instance=ExtResource("3_h2yge")]
+[node name="MockEnemy9" parent="Enemies" instance=ExtResource("3_68ryv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.380354, -0.32315844, -12.309376)
 stats = SubResource("Resource_lquwl")
 
-[node name="MockEnemy10" parent="Enemies" instance=ExtResource("3_h2yge")]
+[node name="MockEnemy10" parent="Enemies" instance=ExtResource("3_68ryv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.019646, 1.5768416, -3.109375)
 stats = SubResource("Resource_lquwl")
