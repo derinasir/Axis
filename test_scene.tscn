@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://sg267t5mheeo"]
+
+[ext_resource type="Texture2D" uid="uid://5gmx2rx0kq2d" path="res://assets/kenney_prototype_textures/Dark/texture_01.png" id="1_uhqqe"]
+[ext_resource type="PackedScene" uid="uid://db6ymfwleb2le" path="res://castle_guard.tscn" id="2_ia1lp"]
+[ext_resource type="PackedScene" uid="uid://bslaomoexm58a" path="res://mock_enemy.tscn" id="3_sasra"]
+[ext_resource type="Script" uid="uid://bhqmmiil3ivhf" path="res://scripts/custom_resources/Stats.gd" id="4_coq8p"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ia1lp"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_sasra"]
+sky_material = SubResource("ProceduralSkyMaterial_ia1lp")
+
+[sub_resource type="Environment" id="Environment_coq8p"]
+background_mode = 2
+sky = SubResource("Sky_sasra")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ia1lp"]
+albedo_texture = ExtResource("1_uhqqe")
+uv1_triplanar = true
+
+[sub_resource type="Resource" id="Resource_2nij2"]
+script = ExtResource("4_coq8p")
+health = 100.0
+metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
+
+[node name="TestScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_coq8p")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Plane" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.40942383, 0)
+material_override = SubResource("StandardMaterial3D_ia1lp")
+use_collision = true
+size = Vector3(67.336914, 0.1, 51.85962)
+
+[node name="CastleGuard" parent="." instance=ExtResource("2_ia1lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.4, -0.2)
+
+[node name="MockEnemy" parent="." instance=ExtResource("3_sasra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7000003, -0.34907013, -1.5)
+stats = SubResource("Resource_2nij2")
+
+[node name="MockEnemy2" parent="." instance=ExtResource("3_sasra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.374437, -0.34907013, -8.461479)
+stats = SubResource("Resource_2nij2")
+
+[node name="MockEnemy3" parent="." instance=ExtResource("3_sasra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42815, -0.34907013, -12.130367)
+stats = SubResource("Resource_2nij2")
+
+[node name="MockEnemy4" parent="." instance=ExtResource("3_sasra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4718504, -0.34907013, 5.469633)
+stats = SubResource("Resource_2nij2")
+
+[node name="MockEnemy5" parent="." instance=ExtResource("3_sasra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.870735, -0.34907013, 11.772595)
+stats = SubResource("Resource_2nij2")
+
+[node name="MockEnemy6" parent="." instance=ExtResource("3_sasra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.088146, -0.34907013, 2.929635)
+stats = SubResource("Resource_2nij2")

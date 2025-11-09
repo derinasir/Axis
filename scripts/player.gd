@@ -2,10 +2,10 @@ class_name Player
 extends CharacterBody3D
 
 
-@onready var locomotion_state_machine: StateMachine = $LocomotionStateMachine
-@onready var combat_state_machine: StateMachine = $CombatStateMachine
-@onready var camera_spring_arm: SpringArm3D = $SpringArm3D
-@onready var camera: Camera3D = $SpringArm3D/Camera3D
+@export var locomotion_state_machine: StateMachine
+@export var combat_state_machine: StateMachine
+@export var camera_spring_arm: SpringArm3D
+@export var camera: Camera3D
 
 
 # ATTACKING
@@ -19,7 +19,7 @@ var speed: float
 
 # TARGETING
 var is_target_locked := false
-@export var current_target: Node3D
+var current_target: Node3D
 
 
 # INPUT

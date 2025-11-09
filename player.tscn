@@ -291,9 +291,13 @@ stamina = 25.0
 armor = 10.0
 metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("locomotion_state_machine", "combat_state_machine", "camera_spring_arm", "camera")]
 collision_layer = 2
 script = ExtResource("1_om8sx")
+locomotion_state_machine = NodePath("LocomotionStateMachine")
+combat_state_machine = NodePath("CombatStateMachine")
+camera_spring_arm = NodePath("SpringArm3D")
+camera = NodePath("SpringArm3D/Camera3D")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="." node_paths=PackedStringArray("player")]
 top_level = true
@@ -317,8 +321,8 @@ shape = SubResource("CapsuleShape3D_om8sx")
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Visuals/maria_animation_rig/Maria Model" index="0"]
-bones/0/position = Vector3(-0.95904523, 1.0530049, -99.69467)
-bones/0/rotation = Quaternion(-0.66944176, -0.102309436, 0.09299994, 0.7298847)
+bones/0/position = Vector3(0.0048447065, 1.7571212, -99.40125)
+bones/0/rotation = Quaternion(-0.66907305, -0.09976957, 0.092784196, 0.7306015)
 bones/1/position = Vector3(0.004652034, 5.2453175, 0.2588343)
 bones/1/rotation = Quaternion(0.17256026, 0.019894145, 0.017212382, 0.9846477)
 bones/2/position = Vector3(1.5494886e-06, 11.066815, -2.5629437e-05)
@@ -326,7 +330,7 @@ bones/2/rotation = Quaternion(-0.0028687306, 0.010431574, -0.003745064, 0.999934
 bones/3/position = Vector3(1.18278024e-07, 8.141912, 3.1087864e-05)
 bones/3/rotation = Quaternion(0.09923728, 0.0110522695, -0.0039690332, 0.9949946)
 bones/4/rotation = Quaternion(-0.10516618, 0.015094527, 0.010295424, 0.99428684)
-bones/5/rotation = Quaternion(-0.12165506, 0.06458254, -0.036489304, 0.9897969)
+bones/5/rotation = Quaternion(-0.12427489, 0.06420738, -0.036880687, 0.98948115)
 bones/7/rotation = Quaternion(-0.5966473, -0.40762502, 0.3592911, -0.5905623)
 bones/8/position = Vector3(-1.3557989e-05, 9.14368, -2.5742352e-06)
 bones/8/rotation = Quaternion(0.55712914, -0.09583763, 0.2426966, 0.7883658)
@@ -412,26 +416,26 @@ bones/53/position = Vector3(-7.248385e-07, 1.2975874, 1.8949086e-06)
 bones/53/rotation = Quaternion(0.4829382, 0.0004322212, 0.0010074447, 0.87565374)
 bones/54/position = Vector3(-9.285759e-07, 2.012996, 1.9082036e-06)
 bones/55/position = Vector3(9.688754, -5.685233, -1.6886241)
-bones/55/rotation = Quaternion(0.04952511, 0.2848113, 0.9542579, -0.07630077)
+bones/55/rotation = Quaternion(0.04929939, 0.29209432, 0.9525172, -0.07043865)
 bones/56/position = Vector3(-2.5894524e-06, 43.16797, 1.591859e-05)
-bones/56/rotation = Quaternion(-0.29344845, -0.038581494, 0.024484696, 0.95488226)
+bones/56/rotation = Quaternion(-0.31110126, -0.038591575, 0.0212223, 0.9493557)
 bones/57/position = Vector3(4.5675883e-06, 40.817726, -4.5743236e-06)
-bones/57/rotation = Quaternion(0.28214428, -0.03684539, -0.03448841, 0.95804363)
+bones/57/rotation = Quaternion(0.2939081, -0.03570963, -0.028794121, 0.95473236)
 bones/58/position = Vector3(-1.630595e-07, 18.000011, -4.6231644e-06)
-bones/58/rotation = Quaternion(0.51358426, -0.005753581, -0.024252838, 0.85767704)
+bones/58/rotation = Quaternion(0.51392674, -0.0058081485, -0.024261244, 0.8574712)
 bones/59/position = Vector3(3.5899614e-06, 13.768198, 1.1062344e-07)
 bones/60/position = Vector3(-9.68877, -5.685183, -1.6886227)
-bones/60/rotation = Quaternion(-0.103964806, 0.13900216, 0.9812542, 0.083725914)
+bones/60/rotation = Quaternion(-0.105232485, 0.13909432, 0.9804471, 0.0911179)
 bones/61/position = Vector3(-1.8751912e-06, 43.168003, 2.4260144e-05)
-bones/61/rotation = Quaternion(-0.31815588, 0.06061797, 0.0016450819, 0.946097)
+bones/61/rotation = Quaternion(-0.32060403, 0.059307624, -0.0006768383, 0.9453546)
 bones/62/position = Vector3(6.010563e-07, 40.817703, -7.9876345e-06)
-bones/62/rotation = Quaternion(0.4232509, 0.04676916, 0.07031185, 0.90206856)
+bones/62/rotation = Quaternion(0.4258321, 0.04809171, 0.07549589, 0.9003636)
 bones/63/position = Vector3(1.128687e-06, 17.99999, 2.6994949e-06)
-bones/63/rotation = Quaternion(0.5216997, 0.0035038441, 0.021256374, 0.8528571)
+bones/63/rotation = Quaternion(0.52068657, 0.0034714602, 0.021050619, 0.85348135)
 bones/64/position = Vector3(4.1648364e-06, 13.768166, -9.5303403e-07)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Visuals/maria_animation_rig/Maria Model/Skeleton3D" index="0"]
-transform = Transform3D(-0.21000347, 0.47867292, 0.85250884, 0.2931761, 0.8626577, -0.4121518, -0.9327093, 0.16338165, -0.3214965, -11.416035, 35.03119, -100.24553)
+transform = Transform3D(-0.21228123, 0.4825166, 0.8497734, 0.2949701, 0.86066973, -0.41501755, -0.9316273, 0.16255702, -0.32503206, -10.325722, 35.77507, -99.87795)
 bone_name = "mixamorig_RightHand"
 bone_idx = 34
 
@@ -494,12 +498,12 @@ metadata/_custom_type_script = "uid://ldf4sgx7md2t"
 
 [node name="NotAttacking" type="Node" parent="CombatStateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("8_urp6f")
-downward_slash_state_path = NodePath("../DownwardSlash")
+slash_1_path = NodePath("../DownwardSlash")
 player = NodePath("../..")
 
 [node name="DownwardSlash" type="Node" parent="CombatStateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("8_n7ghd")
-low_slash_state_path = NodePath("../LowSlash")
+slash_2_state_path = NodePath("../LowSlash")
 animation_name = "slash_downward_slash"
 not_attacking_state_path = NodePath("../NotAttacking")
 player = NodePath("../..")
