@@ -19,57 +19,17 @@ sky = SubResource("Sky_sasra")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ia1lp"]
-albedo_texture = ExtResource("1_xkx7l")
-uv1_triplanar = true
-
 [sub_resource type="Resource" id="Resource_2nij2"]
 script = ExtResource("4_ymcdr")
 health = 100.0
 metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ia1lp"]
+albedo_texture = ExtResource("1_xkx7l")
+uv1_triplanar = true
+
 [node name="TestScene" type="Node3D"]
 script = ExtResource("1_5dxip")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_coq8p")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
-
-[node name="Plane" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.40942383, 0)
-material_override = SubResource("StandardMaterial3D_ia1lp")
-use_collision = true
-size = Vector3(67.336914, 0.1, 51.85962)
-
-[node name="CastleGuard" parent="." instance=ExtResource("2_5dxip")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.4, -0.2)
-
-[node name="MockEnemy" parent="." instance=ExtResource("3_521ro")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7000003, -0.34907013, -1.5)
-stats = SubResource("Resource_2nij2")
-
-[node name="MockEnemy2" parent="." instance=ExtResource("3_521ro")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.374437, -0.34907013, -8.461479)
-stats = SubResource("Resource_2nij2")
-
-[node name="MockEnemy3" parent="." instance=ExtResource("3_521ro")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42815, -0.34907013, -12.130367)
-stats = SubResource("Resource_2nij2")
-
-[node name="MockEnemy4" parent="." instance=ExtResource("3_521ro")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4718504, -0.34907013, 5.469633)
-stats = SubResource("Resource_2nij2")
-
-[node name="MockEnemy5" parent="." instance=ExtResource("3_521ro")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.870735, -0.34907013, 11.772595)
-stats = SubResource("Resource_2nij2")
-
-[node name="MockEnemy6" parent="." instance=ExtResource("3_521ro")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.088146, -0.34907013, 2.929635)
-stats = SubResource("Resource_2nij2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -98,6 +58,50 @@ text = "Menu"
 [node name="Reload" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
 layout_mode = 2
 text = "Reload"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_coq8p")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CastleGuard" parent="." instance=ExtResource("2_5dxip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.4, -0.2)
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="MockEnemy" parent="Enemies" instance=ExtResource("3_521ro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7000003, -0.34907013, -1.5)
+stats = SubResource("Resource_2nij2")
+
+[node name="MockEnemy2" parent="Enemies" instance=ExtResource("3_521ro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.374437, -0.34907013, -8.461479)
+stats = SubResource("Resource_2nij2")
+
+[node name="MockEnemy3" parent="Enemies" instance=ExtResource("3_521ro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42815, -0.34907013, -12.130367)
+stats = SubResource("Resource_2nij2")
+
+[node name="MockEnemy4" parent="Enemies" instance=ExtResource("3_521ro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4718504, -0.34907013, 5.469633)
+stats = SubResource("Resource_2nij2")
+
+[node name="MockEnemy5" parent="Enemies" instance=ExtResource("3_521ro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.870735, -0.34907013, 11.772595)
+stats = SubResource("Resource_2nij2")
+
+[node name="MockEnemy6" parent="Enemies" instance=ExtResource("3_521ro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.088146, -0.34907013, 2.929635)
+stats = SubResource("Resource_2nij2")
+
+[node name="WorldGeometry" type="Node3D" parent="."]
+
+[node name="Plane" type="CSGBox3D" parent="WorldGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.40942383, 0)
+material_override = SubResource("StandardMaterial3D_ia1lp")
+use_collision = true
+size = Vector3(67.336914, 0.1, 51.85962)
 
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Reload" to="." method="_on_reload_pressed"]
