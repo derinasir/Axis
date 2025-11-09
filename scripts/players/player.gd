@@ -73,7 +73,7 @@ func _input(event: InputEvent) -> void:
 	locomotion_state_machine.input(event)
 	combat_state_machine.input(event)
 	
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("Capture Mouse"):
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		elif Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
