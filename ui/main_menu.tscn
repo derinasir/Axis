@@ -13,29 +13,36 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t7e0r")
+metadata/_edit_use_anchors_ = true
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-layout_mode = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -56.5
+offset_right = 54.0
+offset_bottom = 56.5
+grow_horizontal = 2
+grow_vertical = 2
 theme = SubResource("Theme_gl0q7")
 theme_override_constants/separation = 10
 
-[node name="CastleGuard" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="CastleGuard" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Castle Guard"
 
-[node name="Maria" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Maria" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Maria"
 
-[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/CastleGuard" to="." method="_on_castle_guard_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Maria" to="." method="_on_maria_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/CastleGuard" to="." method="_on_castle_guard_pressed"]
+[connection signal="pressed" from="VBoxContainer/Maria" to="." method="_on_maria_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
