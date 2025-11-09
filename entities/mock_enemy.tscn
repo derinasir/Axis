@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://bslaomoexm58a"]
 
-[ext_resource type="Script" uid="uid://exf3y54woksb" path="res://scripts/mock_enemy.gd" id="1_mxc58"]
+[ext_resource type="Script" uid="uid://exf3y54woksb" path="res://scripts/entities/mock_enemy.gd" id="1_mxc58"]
 [ext_resource type="PackedScene" uid="uid://hmbguqu4dkyv" path="res://components/hurtbox.tscn" id="2_mxc58"]
 [ext_resource type="Texture2D" uid="uid://cprtm1fqaf0vi" path="res://icon.svg" id="2_o5evs"]
 [ext_resource type="PackedScene" uid="uid://cgg3yuwmr17cn" path="res://components/combat_manager.tscn" id="5_hcruc"]
