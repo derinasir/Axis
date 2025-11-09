@@ -21,6 +21,9 @@ func physics_process(delta: float) -> State:
 	
 	player.velocity.x = player.direction_vec.x * player.speed
 	player.velocity.z = player.direction_vec.z * player.speed
+	
+	player.velocity.x *= 2 if Input.is_action_pressed("Sprint") and not player.is_on_floor() else 1
+	player.velocity.z *= 2 if Input.is_action_pressed("Sprint") and not player.is_on_floor() else 1
 		
 	
 	if player.is_target_locked and player.current_target:

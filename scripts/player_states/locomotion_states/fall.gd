@@ -5,14 +5,8 @@ extends LocomotionState
 @onready var idle_state = get_node(idle_state_path)
 
 
-@export var speed_multiplier := 2.0
-
-
-
 func physics_process(delta: float) -> State:
 	super(delta)
-	
-	if player.is_on_floor() and player.velocity.y <= 0:
+	if player.is_on_floor():
 		return idle_state
-	
 	return null

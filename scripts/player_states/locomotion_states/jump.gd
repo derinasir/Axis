@@ -1,0 +1,26 @@
+extends LocomotionState
+
+
+@export_node_path("State") var fall_state_path
+@onready var fall_state = get_node(fall_state_path)
+
+@export_node_path("State") var idle_state_path
+@onready var idle_state = get_node(idle_state_path)
+
+
+func enter() -> void:
+	super()
+	player.velocity.y = player.jump_speed
+
+
+func physics_process(delta: float) -> State:
+	super(delta)
+	
+	if player.velocity.y < 0:
+		return fall_state
+
+
+	#if player.is_on_floor():
+		#return idle_state
+	
+	return null

@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://wp38gnqmdcqs"]
+[gd_scene load_steps=75 format=3 uid="uid://wp38gnqmdcqs"]
 
 [ext_resource type="PackedScene" uid="uid://bsl1726vg27pm" path="res://assets/maria_animation_rig.blend" id="1_gdde5"]
 [ext_resource type="Script" uid="uid://bk4xmmrhr0cj5" path="res://scripts/player.gd" id="1_om8sx"]
@@ -9,12 +9,13 @@
 [ext_resource type="Script" uid="uid://b6yu7tj6wh46c" path="res://scripts/player_components/animation_controller.gd" id="6_6aici"]
 [ext_resource type="Script" uid="uid://1oyh5gx0tru5" path="res://scripts/player_states/locomotion_states/idle.gd" id="6_g5pys"]
 [ext_resource type="Script" uid="uid://blvbyxh5ud4g0" path="res://scripts/player_states/locomotion_states/sprint.gd" id="6_xg4h0"]
-[ext_resource type="Script" uid="uid://b24fwqliyuoe" path="res://scripts/player_states/locomotion_states/airborne.gd" id="8_bwjto"]
 [ext_resource type="Script" uid="uid://mjbfiearrapg" path="res://scripts/player_states/combat_states/downward_slash.gd" id="8_n7ghd"]
 [ext_resource type="Script" uid="uid://ba8s637itq84" path="res://scripts/player_states/combat_states/not_attacking.gd" id="8_urp6f"]
 [ext_resource type="Script" uid="uid://ds5pgpcim42dg" path="res://scripts/player_states/combat_states/low_slash.gd" id="9_ivps1"]
 [ext_resource type="Script" uid="uid://bq8y0x7ps1s5v" path="res://scripts/player_components/target_manager.gd" id="9_rnf4f"]
 [ext_resource type="Script" uid="uid://cst66y2l1p0lc" path="res://scripts/player_states/combat_states/power_slash.gd" id="10_urp6f"]
+[ext_resource type="Script" uid="uid://bikhvdq18ss26" path="res://scripts/player_states/locomotion_states/jump.gd" id="11_5tmop"]
+[ext_resource type="Script" uid="uid://b011l7nwbtjp5" path="res://scripts/player_states/locomotion_states/fall.gd" id="12_7ahtn"]
 [ext_resource type="PackedScene" uid="uid://timl11fn7e7r" path="res://components/hitbox.tscn" id="15_606se"]
 [ext_resource type="PackedScene" uid="uid://cgg3yuwmr17cn" path="res://components/combat_manager.tscn" id="16_u1c27"]
 [ext_resource type="Script" uid="uid://bkqea6iys40et" path="res://scripts/custom_resources/DamageData.gd" id="17_q13i1"]
@@ -263,10 +264,10 @@ states/TargetedLocomotion/position = Vector2(678, 92)
 states/idle/node = SubResource("AnimationNodeAnimation_7hik5")
 states/idle/position = Vector2(245, 92)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_j5n4i"), "idle", "FreeLocomotion", SubResource("AnimationNodeStateMachineTransition_pbfsw"), "FreeLocomotion", "idle", SubResource("AnimationNodeStateMachineTransition_5tmop"), "FreeLocomotion", "TargetedLocomotion", SubResource("AnimationNodeStateMachineTransition_ek41f"), "TargetedLocomotion", "FreeLocomotion", SubResource("AnimationNodeStateMachineTransition_7ahtn"), "TargetedLocomotion", "JumpRaise", SubResource("AnimationNodeStateMachineTransition_jm5j8"), "idle", "JumpRaise", SubResource("AnimationNodeStateMachineTransition_hiqhm"), "FreeLocomotion", "JumpRaise", SubResource("AnimationNodeStateMachineTransition_tkwlq"), "FreeLocomotion", "Falling", SubResource("AnimationNodeStateMachineTransition_7hik5"), "TargetedLocomotion", "Falling", SubResource("AnimationNodeStateMachineTransition_qtqh7"), "Falling", "FreeLocomotion", SubResource("AnimationNodeStateMachineTransition_2wuci"), "Falling", "TargetedLocomotion", SubResource("AnimationNodeStateMachineTransition_iruf7"), "JumpRaise", "Falling", SubResource("AnimationNodeStateMachineTransition_hl5qd"), "idle", "Falling", SubResource("AnimationNodeStateMachineTransition_khis8"), "Falling", "idle", SubResource("AnimationNodeStateMachineTransition_b88wv")]
-graph_offset = Vector2(-62.717255, 2)
+graph_offset = Vector2(-40.717255, -105)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_pgbbb"]
-graph_offset = Vector2(-563, 126)
+graph_offset = Vector2(-542, 177)
 nodes/Locomotion/node = SubResource("AnimationNodeStateMachine_7lmhl")
 nodes/Locomotion/position = Vector2(-260, 100)
 nodes/Combat/node = SubResource("AnimationNodeStateMachine_b88wv")
@@ -316,8 +317,8 @@ shape = SubResource("CapsuleShape3D_om8sx")
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Visuals/maria_animation_rig/Maria Model" index="0"]
-bones/0/position = Vector3(0.0063506216, 1.5134535, -99.40805)
-bones/0/rotation = Quaternion(-0.66945916, -0.09909212, 0.09094018, 0.73057175)
+bones/0/position = Vector3(-0.95904523, 1.0530049, -99.69467)
+bones/0/rotation = Quaternion(-0.66944176, -0.102309436, 0.09299994, 0.7298847)
 bones/1/position = Vector3(0.004652034, 5.2453175, 0.2588343)
 bones/1/rotation = Quaternion(0.17256026, 0.019894145, 0.017212382, 0.9846477)
 bones/2/position = Vector3(1.5494886e-06, 11.066815, -2.5629437e-05)
@@ -325,7 +326,7 @@ bones/2/rotation = Quaternion(-0.0028687306, 0.010431574, -0.003745064, 0.999934
 bones/3/position = Vector3(1.18278024e-07, 8.141912, 3.1087864e-05)
 bones/3/rotation = Quaternion(0.09923728, 0.0110522695, -0.0039690332, 0.9949946)
 bones/4/rotation = Quaternion(-0.10516618, 0.015094527, 0.010295424, 0.99428684)
-bones/5/rotation = Quaternion(-0.12422061, 0.06359574, -0.03661101, 0.9895375)
+bones/5/rotation = Quaternion(-0.12165506, 0.06458254, -0.036489304, 0.9897969)
 bones/7/rotation = Quaternion(-0.5966473, -0.40762502, 0.3592911, -0.5905623)
 bones/8/position = Vector3(-1.3557989e-05, 9.14368, -2.5742352e-06)
 bones/8/rotation = Quaternion(0.55712914, -0.09583763, 0.2426966, 0.7883658)
@@ -411,26 +412,26 @@ bones/53/position = Vector3(-7.248385e-07, 1.2975874, 1.8949086e-06)
 bones/53/rotation = Quaternion(0.4829382, 0.0004322212, 0.0010074447, 0.87565374)
 bones/54/position = Vector3(-9.285759e-07, 2.012996, 1.9082036e-06)
 bones/55/position = Vector3(9.688754, -5.685233, -1.6886241)
-bones/55/rotation = Quaternion(0.04940211, 0.29239833, 0.9523641, -0.07117118)
+bones/55/rotation = Quaternion(0.04952511, 0.2848113, 0.9542579, -0.07630077)
 bones/56/position = Vector3(-2.5894524e-06, 43.16797, 1.591859e-05)
-bones/56/rotation = Quaternion(-0.30891806, -0.036917586, 0.020548873, 0.9501497)
+bones/56/rotation = Quaternion(-0.29344845, -0.038581494, 0.024484696, 0.95488226)
 bones/57/position = Vector3(4.5675883e-06, 40.817726, -4.5743236e-06)
-bones/57/rotation = Quaternion(0.2914772, -0.0356118, -0.028530482, 0.9554888)
+bones/57/rotation = Quaternion(0.28214428, -0.03684539, -0.03448841, 0.95804363)
 bones/58/position = Vector3(-1.630595e-07, 18.000011, -4.6231644e-06)
-bones/58/rotation = Quaternion(0.5139555, -0.005717512, -0.024413366, 0.8574504)
+bones/58/rotation = Quaternion(0.51358426, -0.005753581, -0.024252838, 0.85767704)
 bones/59/position = Vector3(3.5899614e-06, 13.768198, 1.1062344e-07)
 bones/60/position = Vector3(-9.68877, -5.685183, -1.6886227)
-bones/60/rotation = Quaternion(-0.10500144, 0.13990453, 0.980465, 0.08994415)
+bones/60/rotation = Quaternion(-0.103964806, 0.13900216, 0.9812542, 0.083725914)
 bones/61/position = Vector3(-1.8751912e-06, 43.168003, 2.4260144e-05)
-bones/61/rotation = Quaternion(-0.32142526, 0.061011553, -0.0006933061, 0.9449672)
+bones/61/rotation = Quaternion(-0.31815588, 0.06061797, 0.0016450819, 0.946097)
 bones/62/position = Vector3(6.010563e-07, 40.817703, -7.9876345e-06)
-bones/62/rotation = Quaternion(0.4252318, 0.04799451, 0.07511969, 0.900684)
+bones/62/rotation = Quaternion(0.4232509, 0.04676916, 0.07031185, 0.90206856)
 bones/63/position = Vector3(1.128687e-06, 17.99999, 2.6994949e-06)
-bones/63/rotation = Quaternion(0.5208511, 0.0036966638, 0.020978862, 0.85338175)
+bones/63/rotation = Quaternion(0.5216997, 0.0035038441, 0.021256374, 0.8528571)
 bones/64/position = Vector3(4.1648364e-06, 13.768166, -9.5303403e-07)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Visuals/maria_animation_rig/Maria Model/Skeleton3D" index="0"]
-transform = Transform3D(-0.20974797, 0.48542106, 0.84874773, 0.29540786, 0.85895145, -0.41825387, -0.9320623, 0.16299866, -0.3235605, -10.198453, 35.56894, -99.91304)
+transform = Transform3D(-0.21000347, 0.47867292, 0.85250884, 0.2931761, 0.8626577, -0.4121518, -0.9327093, 0.16338165, -0.3214965, -11.416035, 35.03119, -100.24553)
 bone_name = "mixamorig_RightHand"
 bone_idx = 34
 
@@ -451,26 +452,36 @@ initial_state = NodePath("Walk")
 script = ExtResource("5_qwe6b")
 idle_state_path = NodePath("../Idle")
 sprint_state_path = NodePath("../Sprint")
-airborne_state_path = NodePath("../Airborne")
+jump_state_path = NodePath("../Jump")
+fall_state_path = NodePath("../Fall")
 player = NodePath("../..")
 
 [node name="Sprint" type="Node" parent="LocomotionStateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("6_xg4h0")
 idle_state_path = NodePath("../Idle")
 walk_state_path = NodePath("../Walk")
-airborne_state_path = NodePath("../Airborne")
-free_speed = 3.0
+jump_state_path = NodePath("../Jump")
+free_speed = 3.2
 target_locked_speed = 2.75
 player = NodePath("../..")
 
 [node name="Idle" type="Node" parent="LocomotionStateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("6_g5pys")
 walk_state_path = NodePath("../Walk")
-airborne_state_path = NodePath("../Airborne")
+jump_state_path = NodePath("../Jump")
+fall_state_path = NodePath("../Fall")
 player = NodePath("../..")
 
-[node name="Airborne" type="Node" parent="LocomotionStateMachine" node_paths=PackedStringArray("player")]
-script = ExtResource("8_bwjto")
+[node name="Jump" type="Node" parent="LocomotionStateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("11_5tmop")
+fall_state_path = NodePath("../Fall")
+idle_state_path = NodePath("../Idle")
+free_speed = 2.0
+target_locked_speed = 2.0
+player = NodePath("../..")
+
+[node name="Fall" type="Node" parent="LocomotionStateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("12_7ahtn")
 idle_state_path = NodePath("../Idle")
 free_speed = 2.0
 target_locked_speed = 2.0
@@ -538,7 +549,6 @@ hitbox = NodePath("../Visuals/maria_animation_rig/Maria Model/Skeleton3D/BoneAtt
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 
-[connection signal="entered" from="LocomotionStateMachine/Airborne" to="AnimationTree" method="_on_airborne_entered"]
 [connection signal="body_entered" from="TargetManager" to="TargetManager" method="_on_body_entered"]
 [connection signal="body_exited" from="TargetManager" to="TargetManager" method="_on_body_exited"]
 [connection signal="struck" from="CombatManager" to="SpringArm3D/Camera3D" method="_on_combat_manager_struck"]
