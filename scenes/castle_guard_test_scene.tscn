@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://5gmx2rx0kq2d" path="res://assets/kenney_prototype_textures/Dark/texture_01.png" id="1_xkx7l"]
 [ext_resource type="PackedScene" uid="uid://db6ymfwleb2le" path="res://players/castle_guard.tscn" id="2_5dxip"]
 [ext_resource type="PackedScene" uid="uid://bslaomoexm58a" path="res://entities/mock_enemy.tscn" id="3_521ro"]
-[ext_resource type="Script" uid="uid://bhqmmiil3ivhf" path="res://scripts/custom_resources/Stats.gd" id="4_ymcdr"]
+[ext_resource type="Script" uid="uid://bhqmmiil3ivhf" path="res://scripts/custom_resources/CombatStats.gd" id="4_ymcdr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ia1lp"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -19,9 +19,11 @@ sky = SubResource("Sky_sasra")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="Resource" id="Resource_2nij2"]
+[sub_resource type="Resource" id="Resource_5dxip"]
 script = ExtResource("4_ymcdr")
 health = 100.0
+stamina = 10.0
+armor = 10.0
 metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ia1lp"]
@@ -73,27 +75,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.4, -0.2)
 
 [node name="MockEnemy" parent="Enemies" instance=ExtResource("3_521ro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7000003, -0.34907013, -1.5)
-stats = SubResource("Resource_2nij2")
+combat_stats = SubResource("Resource_5dxip")
 
 [node name="MockEnemy2" parent="Enemies" instance=ExtResource("3_521ro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.374437, -0.34907013, -8.461479)
-stats = SubResource("Resource_2nij2")
+combat_stats = SubResource("Resource_5dxip")
 
 [node name="MockEnemy3" parent="Enemies" instance=ExtResource("3_521ro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42815, -0.34907013, -12.130367)
-stats = SubResource("Resource_2nij2")
+combat_stats = SubResource("Resource_5dxip")
 
 [node name="MockEnemy4" parent="Enemies" instance=ExtResource("3_521ro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4718504, -0.34907013, 5.469633)
-stats = SubResource("Resource_2nij2")
+combat_stats = SubResource("Resource_5dxip")
 
 [node name="MockEnemy5" parent="Enemies" instance=ExtResource("3_521ro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.870735, -0.34907013, 11.772595)
-stats = SubResource("Resource_2nij2")
+combat_stats = SubResource("Resource_5dxip")
 
 [node name="MockEnemy6" parent="Enemies" instance=ExtResource("3_521ro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.088146, -0.34907013, 2.929635)
-stats = SubResource("Resource_2nij2")
+combat_stats = SubResource("Resource_5dxip")
 
 [node name="WorldGeometry" type="Node3D" parent="."]
 

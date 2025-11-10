@@ -1,13 +1,13 @@
 extends CharacterBody3D
 
 @onready var combat_manager: Node = $CombatManager
-@export var stats: Stats
+@export var combat_stats: CombatStats
 
 @onready var mesh = $MeshInstance3D
 
 
 func _ready() -> void:
-	combat_manager.stats = stats.duplicate(true)
+	combat_manager.combat_stats = combat_stats.duplicate(true)
 	
 	var material = mesh.get_surface_override_material(0)
 	var material_copy = material.duplicate()

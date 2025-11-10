@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://wp38gnqmdcqs"]
+[gd_scene load_steps=76 format=3 uid="uid://wp38gnqmdcqs"]
 
 [ext_resource type="PackedScene" uid="uid://bsl1726vg27pm" path="res://assets/maria_blender_files/maria_animation_rig.blend" id="1_gdde5"]
 [ext_resource type="Script" uid="uid://bk4xmmrhr0cj5" path="res://scripts/players/player.gd" id="1_om8sx"]
@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://timl11fn7e7r" path="res://components/hitbox.tscn" id="15_606se"]
 [ext_resource type="PackedScene" uid="uid://cgg3yuwmr17cn" path="res://components/combat_manager.tscn" id="16_u1c27"]
 [ext_resource type="Script" uid="uid://bkqea6iys40et" path="res://scripts/custom_resources/DamageData.gd" id="17_q13i1"]
-[ext_resource type="Script" uid="uid://bhqmmiil3ivhf" path="res://scripts/custom_resources/Stats.gd" id="18_pylmc"]
+[ext_resource type="Script" uid="uid://bhqmmiil3ivhf" path="res://scripts/custom_resources/CombatStats.gd" id="18_pylmc"]
 [ext_resource type="PackedScene" uid="uid://hmbguqu4dkyv" path="res://components/hurtbox.tscn" id="19_pylmc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_om8sx"]
@@ -284,12 +284,14 @@ script = ExtResource("17_q13i1")
 damage_value = 21.0
 metadata/_custom_type_script = "uid://bkqea6iys40et"
 
-[sub_resource type="Resource" id="Resource_q13i1"]
+[sub_resource type="Resource" id="Resource_uiwii"]
 script = ExtResource("18_pylmc")
-health = 1000.0
-stamina = 25.0
+health = 100.0
+stamina = 10.0
 armor = 10.0
 metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_hmd22"]
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("locomotion_state_machine", "combat_state_machine", "camera_spring_arm", "camera")]
 collision_layer = 2
@@ -321,8 +323,8 @@ shape = SubResource("CapsuleShape3D_om8sx")
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Visuals/maria_animation_rig/Maria Model" index="0"]
-bones/0/position = Vector3(0.0048447065, 1.7571212, -99.40125)
-bones/0/rotation = Quaternion(-0.66907305, -0.09976957, 0.092784196, 0.7306015)
+bones/0/position = Vector3(-0.58942366, 0.8682457, -99.53782)
+bones/0/rotation = Quaternion(-0.6710974, -0.1012832, 0.091275826, 0.728724)
 bones/1/position = Vector3(0.004652034, 5.2453175, 0.2588343)
 bones/1/rotation = Quaternion(0.17256026, 0.019894145, 0.017212382, 0.9846477)
 bones/2/position = Vector3(1.5494886e-06, 11.066815, -2.5629437e-05)
@@ -330,7 +332,7 @@ bones/2/rotation = Quaternion(-0.0028687306, 0.010431574, -0.003745064, 0.999934
 bones/3/position = Vector3(1.18278024e-07, 8.141912, 3.1087864e-05)
 bones/3/rotation = Quaternion(0.09923728, 0.0110522695, -0.0039690332, 0.9949946)
 bones/4/rotation = Quaternion(-0.10516618, 0.015094527, 0.010295424, 0.99428684)
-bones/5/rotation = Quaternion(-0.12427489, 0.06420738, -0.036880687, 0.98948115)
+bones/5/rotation = Quaternion(-0.12224473, 0.063180655, -0.03623147, 0.9898241)
 bones/7/rotation = Quaternion(-0.5966473, -0.40762502, 0.3592911, -0.5905623)
 bones/8/position = Vector3(-1.3557989e-05, 9.14368, -2.5742352e-06)
 bones/8/rotation = Quaternion(0.55712914, -0.09583763, 0.2426966, 0.7883658)
@@ -416,26 +418,26 @@ bones/53/position = Vector3(-7.248385e-07, 1.2975874, 1.8949086e-06)
 bones/53/rotation = Quaternion(0.4829382, 0.0004322212, 0.0010074447, 0.87565374)
 bones/54/position = Vector3(-9.285759e-07, 2.012996, 1.9082036e-06)
 bones/55/position = Vector3(9.688754, -5.685233, -1.6886241)
-bones/55/rotation = Quaternion(0.04929939, 0.29209432, 0.9525172, -0.07043865)
+bones/55/rotation = Quaternion(0.05113734, 0.28728792, 0.9534447, -0.07611698)
 bones/56/position = Vector3(-2.5894524e-06, 43.16797, 1.591859e-05)
-bones/56/rotation = Quaternion(-0.31110126, -0.038591575, 0.0212223, 0.9493557)
+bones/56/rotation = Quaternion(-0.29867774, -0.036163192, 0.021277659, 0.95343125)
 bones/57/position = Vector3(4.5675883e-06, 40.817726, -4.5743236e-06)
-bones/57/rotation = Quaternion(0.2939081, -0.03570963, -0.028794121, 0.95473236)
+bones/57/rotation = Quaternion(0.28297377, -0.03633627, -0.03228458, 0.9578952)
 bones/58/position = Vector3(-1.630595e-07, 18.000011, -4.6231644e-06)
-bones/58/rotation = Quaternion(0.51392674, -0.0058081485, -0.024261244, 0.8574712)
+bones/58/rotation = Quaternion(0.51398957, -0.005609489, -0.024594653, 0.85742545)
 bones/59/position = Vector3(3.5899614e-06, 13.768198, 1.1062344e-07)
 bones/60/position = Vector3(-9.68877, -5.685183, -1.6886227)
-bones/60/rotation = Quaternion(-0.105232485, 0.13909432, 0.9804471, 0.0911179)
+bones/60/rotation = Quaternion(-0.10430083, 0.14025372, 0.9808803, 0.08558118)
 bones/61/position = Vector3(-1.8751912e-06, 43.168003, 2.4260144e-05)
-bones/61/rotation = Quaternion(-0.32060403, 0.059307624, -0.0006768383, 0.9453546)
+bones/61/rotation = Quaternion(-0.3225341, 0.060918916, 0.0013866951, 0.94459444)
 bones/62/position = Vector3(6.010563e-07, 40.817703, -7.9876345e-06)
-bones/62/rotation = Quaternion(0.4258321, 0.04809171, 0.07549589, 0.9003636)
+bones/62/rotation = Quaternion(0.424648, 0.04684706, 0.07046282, 0.9013958)
 bones/63/position = Vector3(1.128687e-06, 17.99999, 2.6994949e-06)
-bones/63/rotation = Quaternion(0.52068657, 0.0034714602, 0.021050619, 0.85348135)
+bones/63/rotation = Quaternion(0.52104706, 0.003965063, 0.020893335, 0.85326296)
 bones/64/position = Vector3(4.1648364e-06, 13.768166, -9.5303403e-07)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Visuals/maria_animation_rig/Maria Model/Skeleton3D" index="0"]
-transform = Transform3D(-0.21228123, 0.4825166, 0.8497734, 0.2949701, 0.86066973, -0.41501755, -0.9316273, 0.16255702, -0.32503206, -10.325722, 35.77507, -99.87795)
+transform = Transform3D(-0.20756668, 0.48191303, 0.8512792, 0.29045886, 0.86134726, -0.4167903, -0.9341038, 0.16074963, -0.3187629, -10.909108, 34.885754, -100.23225)
 bone_name = "mixamorig_RightHand"
 bone_idx = 34
 
@@ -545,13 +547,14 @@ shape = SubResource("CylinderShape3D_xg4h0")
 
 [node name="CombatManager" parent="." node_paths=PackedStringArray("hurtbox", "hitbox") instance=ExtResource("16_u1c27")]
 damage_data = SubResource("Resource_op7ga")
-stats = SubResource("Resource_q13i1")
+combat_stats = SubResource("Resource_uiwii")
 hurtbox = NodePath("../Hurtbox")
 hitbox = NodePath("../Visuals/maria_animation_rig/Maria Model/Skeleton3D/BoneAttachment3D/Hitbox")
 
 [node name="Hurtbox" parent="." instance=ExtResource("19_pylmc")]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamPolyphonic_hmd22")
 
 [connection signal="body_entered" from="TargetManager" to="TargetManager" method="_on_body_entered"]
 [connection signal="body_exited" from="TargetManager" to="TargetManager" method="_on_body_exited"]

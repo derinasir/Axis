@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://d30bh2xfh88ia" path="res://scripts/scenes/maria_test_scene.gd" id="1_w0bur"]
 [ext_resource type="PackedScene" uid="uid://wp38gnqmdcqs" path="res://players/maria.tscn" id="2_w0bur"]
 [ext_resource type="PackedScene" uid="uid://bslaomoexm58a" path="res://entities/mock_enemy.tscn" id="3_68ryv"]
-[ext_resource type="Script" uid="uid://bhqmmiil3ivhf" path="res://scripts/custom_resources/Stats.gd" id="4_dwqim"]
+[ext_resource type="Script" uid="uid://bhqmmiil3ivhf" path="res://scripts/custom_resources/CombatStats.gd" id="4_dwqim"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -23,9 +23,11 @@ glow_enabled = true
 albedo_texture = ExtResource("1_hcetx")
 uv1_triplanar = true
 
-[sub_resource type="Resource" id="Resource_lquwl"]
+[sub_resource type="Resource" id="Resource_w0bur"]
 script = ExtResource("4_dwqim")
 health = 100.0
+stamina = 10.0
+armor = 10.0
 metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
 
 [node name="MariaTestScene" type="Node3D"]
@@ -111,43 +113,43 @@ size = Vector3(3, 2, 1)
 
 [node name="MockEnemy" parent="Enemies" instance=ExtResource("3_68ryv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.386696, -0.32315797, -2.185205)
-stats = SubResource("Resource_lquwl")
+combat_stats = SubResource("Resource_w0bur")
 
 [node name="MockEnemy2" parent="Enemies" instance=ExtResource("3_68ryv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.483617, -0.32315797, 4.272908)
-stats = SubResource("Resource_lquwl")
+combat_stats = SubResource("Resource_w0bur")
 
 [node name="MockEnemy3" parent="Enemies" instance=ExtResource("3_68ryv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4803534, -0.32315844, 7.7906246)
-stats = SubResource("Resource_lquwl")
+combat_stats = SubResource("Resource_w0bur")
 
 [node name="MockEnemy4" parent="Enemies" instance=ExtResource("3_68ryv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.719647, -0.32315844, -6.7093754)
-stats = SubResource("Resource_lquwl")
+combat_stats = SubResource("Resource_w0bur")
 
 [node name="MockEnemy5" parent="Enemies" instance=ExtResource("3_68ryv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7803535, -0.32315844, -12.109376)
-stats = SubResource("Resource_lquwl")
+combat_stats = SubResource("Resource_w0bur")
 
 [node name="MockEnemy6" parent="Enemies" instance=ExtResource("3_68ryv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.319647, -0.32315844, -14.609376)
-stats = SubResource("Resource_lquwl")
+combat_stats = SubResource("Resource_w0bur")
 
 [node name="MockEnemy7" parent="Enemies" instance=ExtResource("3_68ryv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.319647, -0.32315844, 0.49062443)
-stats = SubResource("Resource_lquwl")
+combat_stats = SubResource("Resource_w0bur")
 
 [node name="MockEnemy8" parent="Enemies" instance=ExtResource("3_68ryv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.580355, -0.32315844, 3.5906246)
-stats = SubResource("Resource_lquwl")
+combat_stats = SubResource("Resource_w0bur")
 
 [node name="MockEnemy9" parent="Enemies" instance=ExtResource("3_68ryv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.380354, -0.32315844, -12.309376)
-stats = SubResource("Resource_lquwl")
+combat_stats = SubResource("Resource_w0bur")
 
 [node name="MockEnemy10" parent="Enemies" instance=ExtResource("3_68ryv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.019646, 1.5768416, -3.109375)
-stats = SubResource("Resource_lquwl")
+combat_stats = SubResource("Resource_w0bur")
 
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Reload" to="." method="_on_reload_pressed"]
