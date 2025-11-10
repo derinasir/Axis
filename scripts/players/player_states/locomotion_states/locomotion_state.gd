@@ -17,20 +17,23 @@ func enter() -> void:
 
 func physics_process(delta: float) -> State:
 	player.speed = target_locked_speed if player.is_target_locked else free_speed
-
 	
-	player.velocity.x = player.direction_vec.x * player.speed
-	player.velocity.z = player.direction_vec.z * player.speed
+	var acceleration = player.acceleration if player.is_on_floor() else player.air_acceleration
+	var deceleration = player.deceleration if player.is_on_floor() else player.air_deceleration
 	
-	player.velocity.x *= 2 if Input.is_action_pressed("Sprint") and not player.is_on_floor() else 1
-	player.velocity.z *= 2 if Input.is_action_pressed("Sprint") and not player.is_on_floor() else 1
+	if player.input_dir:
+		player.velocity.x = lerp(player.velocity.x, player.direction_vec.x * player.speed, acceleration * delta)
+		player.velocity.z = lerp(player.velocity.z, player.direction_vec.z * player.speed, acceleration * delta)
+	else:
+		player.velocity.x = lerp(player.velocity.x, player.direction_vec.x * player.speed, deceleration * delta)
+		player.velocity.z = lerp(player.velocity.z, player.direction_vec.z * player.speed, deceleration * delta)
 		
 	
 	if player.is_target_locked and player.current_target:
 		to_target = (player.current_target.global_position - player.global_position)
-		player.direction_vec = transform_to_target_space(player.direction_vec)
+		player.direction_vec = transform_to_target_space()
 	else:
-		player.direction_vec = transform_to_camera_space(player.direction_vec)
+		player.direction_vec = transform_to_camera_space()
 	
 	player.direction_vec.y = 0
 	player.direction_vec = player.direction_vec.normalized()
@@ -41,7 +44,7 @@ func physics_process(delta: float) -> State:
 	if player.is_target_locked and player.is_on_floor():
 		target_rotation = atan2(-to_target.x, -to_target.z)
 		player.rotation.y = lerp_angle(player.rotation.y, target_rotation, 0.09)
-	else:
+	elif player.direction_vec:
 		target_rotation = atan2(-player.direction_vec.x, -player.direction_vec.z)
 		if player.velocity:
 			player.rotation.y = lerp_angle(player.rotation.y, target_rotation, 0.09)
@@ -54,12 +57,12 @@ func physics_process(delta: float) -> State:
 	
 	return null
 
-func transform_to_target_space(direction_vec: Vector3) -> Vector3:
+func transform_to_target_space() -> Vector3:
 	var target_basis = Basis(Vector3.UP, atan2(to_target.x, to_target.z))
 	return (target_basis * Vector3(-player.input_dir.x, 0, player.input_dir.y))
 	
 
-func transform_to_camera_space(direction_vec: Vector3) -> Vector3:
+func transform_to_camera_space() -> Vector3:
 	return (
 		player.camera.global_basis * Vector3(player.input_dir.x, 0, -player.input_dir.y)
 	)

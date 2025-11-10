@@ -7,6 +7,9 @@ extends LocomotionState
 @export_node_path("State") var jump_state_path
 @onready var jump_state = get_node(jump_state_path)
 
+@export_node_path("State") var sprint_state_path
+@onready var sprint_state = get_node(sprint_state_path)
+
 @export_node_path("State") var fall_state_path
 @onready var fall_state = get_node(fall_state_path)
 
@@ -18,7 +21,10 @@ func physics_process(delta: float) -> State:
 		return fall_state
 	
 	if player.direction_vec:
-		return walk_state
+		if Input.is_action_pressed("Sprint"):
+			return sprint_state
+		else:
+			return walk_state
 	
 	return null
 

@@ -14,7 +14,12 @@ var is_attacking := false
 
 # LOCOMOTION
 var speed: float
-@export var jump_speed := 4.5
+@export var jump_speed := 5.0
+@export var sprint_jump_speed := 5.0
+@export var acceleration = 10.0
+@export var deceleration = 10.0
+@export var air_acceleration = 2.0
+@export var air_deceleration = 2.0
 
 
 # TARGETING

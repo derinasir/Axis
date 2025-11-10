@@ -10,14 +10,17 @@ extends LocomotionState
 
 func enter() -> void:
 	super()
-	player.velocity.y = player.jump_speed
-
+	player.velocity.y = player.sprint_jump_speed if Input.is_action_pressed("Sprint") else player.jump_speed
+	#var plane_velocity = Vector3(player.velocity.x, 0, player.velocity.z)
+	#free_speed = plane_velocity.length()
+	#target_locked_speed = plane_velocity.length()
 
 func physics_process(delta: float) -> State:
 	super(delta)
 	
 	if player.velocity.y < 0:
 		return fall_state
+	
 
 
 	#if player.is_on_floor():
