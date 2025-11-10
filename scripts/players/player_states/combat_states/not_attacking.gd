@@ -1,8 +1,8 @@
 extends PlayerState
 
 
-@export_node_path("State") var slash_1_path
-@onready var slash_1 = get_node(slash_1_path)
+@export_node_path("State") var attack1_state_path
+@onready var attack1_state = get_node(attack1_state_path)
 
 var combo_window_open := false
 
@@ -15,6 +15,6 @@ func input(event: InputEvent) -> State:
 	super(event)
 	
 	if event.is_action_pressed("Attack"):
-		return slash_1
+		return attack1_state
 	
 	return null

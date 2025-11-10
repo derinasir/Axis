@@ -36,20 +36,12 @@ func _ready() -> void:
 	locomotion_state_machine.initialize()
 	combat_state_machine.initialize()
 	
-	print(Settings.has_connected_gamepads())
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func _process(delta: float) -> void:
 	locomotion_state_machine.process(delta)
 	combat_state_machine.process(delta)
-	
-	#print("***************")
-	#print(combat_state_machine.current_state)
-	#print("---------------")
-	#print(locomotion_state_machine.current_state.name)
-	#print("***************")
-	
 
 
 func _physics_process(delta: float) -> void:
@@ -57,6 +49,7 @@ func _physics_process(delta: float) -> void:
 	combat_state_machine.physics_process(delta)
 	
 	camera_spring_arm.position = position + spring_arm_offset
+	
 	input_dir = Input.get_vector("Move Left", "Move Right", "Move Backward", "Move Forward")
 	
 	if Input.is_action_just_pressed("Target Lock"):

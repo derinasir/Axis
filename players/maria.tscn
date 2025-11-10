@@ -9,11 +9,11 @@
 [ext_resource type="Script" uid="uid://b6yu7tj6wh46c" path="res://scripts/players/player_components/animation_controller.gd" id="6_6aici"]
 [ext_resource type="Script" uid="uid://1oyh5gx0tru5" path="res://scripts/players/player_states/locomotion_states/idle.gd" id="6_g5pys"]
 [ext_resource type="Script" uid="uid://blvbyxh5ud4g0" path="res://scripts/players/player_states/locomotion_states/sprint.gd" id="6_xg4h0"]
-[ext_resource type="Script" uid="uid://mjbfiearrapg" path="res://scripts/players/player_states/combat_states/downward_slash.gd" id="8_n7ghd"]
+[ext_resource type="Script" uid="uid://mjbfiearrapg" path="res://scripts/players/player_states/combat_states/attack_1.gd" id="8_n7ghd"]
 [ext_resource type="Script" uid="uid://ba8s637itq84" path="res://scripts/players/player_states/combat_states/not_attacking.gd" id="8_urp6f"]
-[ext_resource type="Script" uid="uid://ds5pgpcim42dg" path="res://scripts/players/player_states/combat_states/low_slash.gd" id="9_ivps1"]
+[ext_resource type="Script" uid="uid://ds5pgpcim42dg" path="res://scripts/players/player_states/combat_states/attack_2.gd" id="9_ivps1"]
 [ext_resource type="Script" uid="uid://bq8y0x7ps1s5v" path="res://scripts/players/player_components/target_manager.gd" id="9_rnf4f"]
-[ext_resource type="Script" uid="uid://cst66y2l1p0lc" path="res://scripts/players/player_states/combat_states/power_slash.gd" id="10_urp6f"]
+[ext_resource type="Script" uid="uid://cst66y2l1p0lc" path="res://scripts/players/player_states/combat_states/attack_3.gd" id="10_urp6f"]
 [ext_resource type="Script" uid="uid://bikhvdq18ss26" path="res://scripts/players/player_states/locomotion_states/jump.gd" id="11_5tmop"]
 [ext_resource type="Script" uid="uid://b011l7nwbtjp5" path="res://scripts/players/player_states/locomotion_states/fall.gd" id="12_7ahtn"]
 [ext_resource type="PackedScene" uid="uid://timl11fn7e7r" path="res://components/hitbox.tscn" id="15_606se"]
@@ -291,7 +291,7 @@ stamina = 10.0
 armor = 10.0
 metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
 
-[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_hmd22"]
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_uiwii"]
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("locomotion_state_machine", "combat_state_machine", "camera_spring_arm", "camera")]
 collision_layer = 2
@@ -323,8 +323,8 @@ shape = SubResource("CapsuleShape3D_om8sx")
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Visuals/maria_animation_rig/Maria Model" index="0"]
-bones/0/position = Vector3(-0.58942366, 0.8682457, -99.53782)
-bones/0/rotation = Quaternion(-0.6710974, -0.1012832, 0.091275826, 0.728724)
+bones/0/position = Vector3(-1.6343566, 0.0752089, -99.44025)
+bones/0/rotation = Quaternion(-0.6730322, -0.100265644, 0.089291416, 0.727325)
 bones/1/position = Vector3(0.004652034, 5.2453175, 0.2588343)
 bones/1/rotation = Quaternion(0.17256026, 0.019894145, 0.017212382, 0.9846477)
 bones/2/position = Vector3(1.5494886e-06, 11.066815, -2.5629437e-05)
@@ -332,7 +332,7 @@ bones/2/rotation = Quaternion(-0.0028687306, 0.010431574, -0.003745064, 0.999934
 bones/3/position = Vector3(1.18278024e-07, 8.141912, 3.1087864e-05)
 bones/3/rotation = Quaternion(0.09923728, 0.0110522695, -0.0039690332, 0.9949946)
 bones/4/rotation = Quaternion(-0.10516618, 0.015094527, 0.010295424, 0.99428684)
-bones/5/rotation = Quaternion(-0.12224473, 0.063180655, -0.03623147, 0.9898241)
+bones/5/rotation = Quaternion(-0.12022567, 0.06420111, -0.036894444, 0.98998123)
 bones/7/rotation = Quaternion(-0.5966473, -0.40762502, 0.3592911, -0.5905623)
 bones/8/position = Vector3(-1.3557989e-05, 9.14368, -2.5742352e-06)
 bones/8/rotation = Quaternion(0.55712914, -0.09583763, 0.2426966, 0.7883658)
@@ -418,26 +418,26 @@ bones/53/position = Vector3(-7.248385e-07, 1.2975874, 1.8949086e-06)
 bones/53/rotation = Quaternion(0.4829382, 0.0004322212, 0.0010074447, 0.87565374)
 bones/54/position = Vector3(-9.285759e-07, 2.012996, 1.9082036e-06)
 bones/55/position = Vector3(9.688754, -5.685233, -1.6886241)
-bones/55/rotation = Quaternion(0.05113734, 0.28728792, 0.9534447, -0.07611698)
+bones/55/rotation = Quaternion(0.051564362, 0.28567, 0.95347065, -0.08140906)
 bones/56/position = Vector3(-2.5894524e-06, 43.16797, 1.591859e-05)
-bones/56/rotation = Quaternion(-0.29867774, -0.036163192, 0.021277659, 0.95343125)
+bones/56/rotation = Quaternion(-0.29291615, -0.031671323, 0.022425296, 0.95535034)
 bones/57/position = Vector3(4.5675883e-06, 40.817726, -4.5743236e-06)
-bones/57/rotation = Quaternion(0.28297377, -0.03633627, -0.03228458, 0.9578952)
+bones/57/rotation = Quaternion(0.27557856, -0.03720828, -0.036569882, 0.9598618)
 bones/58/position = Vector3(-1.630595e-07, 18.000011, -4.6231644e-06)
-bones/58/rotation = Quaternion(0.51398957, -0.005609489, -0.024594653, 0.85742545)
+bones/58/rotation = Quaternion(0.5140418, -0.0054442263, -0.02487201, 0.8573873)
 bones/59/position = Vector3(3.5899614e-06, 13.768198, 1.1062344e-07)
 bones/60/position = Vector3(-9.68877, -5.685183, -1.6886227)
-bones/60/rotation = Quaternion(-0.10430083, 0.14025372, 0.9808803, 0.08558118)
+bones/60/rotation = Quaternion(-0.106037736, 0.1433802, 0.98057085, 0.08172565)
 bones/61/position = Vector3(-1.8751912e-06, 43.168003, 2.4260144e-05)
-bones/61/rotation = Quaternion(-0.3225341, 0.060918916, 0.0013866951, 0.94459444)
+bones/61/rotation = Quaternion(-0.33355373, 0.062025838, 0.0060557853, 0.940669)
 bones/62/position = Vector3(6.010563e-07, 40.817703, -7.9876345e-06)
-bones/62/rotation = Quaternion(0.424648, 0.04684706, 0.07046282, 0.9013958)
+bones/62/rotation = Quaternion(0.42936727, 0.045360338, 0.06400402, 0.8997165)
 bones/63/position = Vector3(1.128687e-06, 17.99999, 2.6994949e-06)
-bones/63/rotation = Quaternion(0.52104706, 0.003965063, 0.020893335, 0.85326296)
+bones/63/rotation = Quaternion(0.5213511, 0.0041106786, 0.020889392, 0.8530767)
 bones/64/position = Vector3(4.1648364e-06, 13.768166, -9.5303403e-07)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Visuals/maria_animation_rig/Maria Model/Skeleton3D" index="0"]
-transform = Transform3D(-0.20756668, 0.48191303, 0.8512792, 0.29045886, 0.86134726, -0.4167903, -0.9341038, 0.16074963, -0.3187629, -10.909108, 34.885754, -100.23225)
+transform = Transform3D(-0.2045987, 0.4854058, 0.85001236, 0.28717467, 0.8599356, -0.42194927, -0.93577254, 0.15777163, -0.31533784, -11.803041, 34.13424, -100.305824)
 bone_name = "mixamorig_RightHand"
 bone_idx = 34
 
@@ -500,19 +500,19 @@ metadata/_custom_type_script = "uid://ldf4sgx7md2t"
 
 [node name="NotAttacking" type="Node" parent="CombatStateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("8_urp6f")
-slash_1_path = NodePath("../DownwardSlash")
+attack1_state_path = NodePath("../DownwardSlash")
 player = NodePath("../..")
 
 [node name="DownwardSlash" type="Node" parent="CombatStateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("8_n7ghd")
-slash_2_state_path = NodePath("../LowSlash")
+attack_2_state_path = NodePath("../LowSlash")
 animation_name = "slash_downward_slash"
 not_attacking_state_path = NodePath("../NotAttacking")
 player = NodePath("../..")
 
 [node name="LowSlash" type="Node" parent="CombatStateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("9_ivps1")
-power_slash_state_path = NodePath("../PowerSlash")
+attack_3_state_path = NodePath("../PowerSlash")
 animation_name = "slash_low_slash"
 not_attacking_state_path = NodePath("../NotAttacking")
 player = NodePath("../..")
@@ -554,7 +554,7 @@ hitbox = NodePath("../Visuals/maria_animation_rig/Maria Model/Skeleton3D/BoneAtt
 [node name="Hurtbox" parent="." instance=ExtResource("19_pylmc")]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = SubResource("AudioStreamPolyphonic_hmd22")
+stream = SubResource("AudioStreamPolyphonic_uiwii")
 
 [connection signal="body_entered" from="TargetManager" to="TargetManager" method="_on_body_entered"]
 [connection signal="body_exited" from="TargetManager" to="TargetManager" method="_on_body_exited"]
