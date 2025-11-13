@@ -7,6 +7,8 @@ extends CharacterBody3D
 @export var camera_spring_arm: SpringArm3D
 @export var camera: Camera3D
 
+@export var hurtbox: Hurtbox
+
 
 # ATTACKING
 var is_attacking := false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://wp38gnqmdcqs"]
+[gd_scene load_steps=78 format=3 uid="uid://wp38gnqmdcqs"]
 
 [ext_resource type="PackedScene" uid="uid://bsl1726vg27pm" path="res://assets/maria_blender_files/maria_animation_rig.blend" id="1_gdde5"]
 [ext_resource type="Script" uid="uid://bk4xmmrhr0cj5" path="res://scripts/players/player.gd" id="1_om8sx"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://cst66y2l1p0lc" path="res://scripts/players/player_states/combat_states/attack_3.gd" id="10_urp6f"]
 [ext_resource type="Script" uid="uid://bikhvdq18ss26" path="res://scripts/players/player_states/locomotion_states/jump.gd" id="11_5tmop"]
 [ext_resource type="Script" uid="uid://b011l7nwbtjp5" path="res://scripts/players/player_states/locomotion_states/fall.gd" id="12_7ahtn"]
+[ext_resource type="Script" uid="uid://dve76yn62fbds" path="res://scripts/players/player_states/locomotion_states/evade.gd" id="12_hmd22"]
 [ext_resource type="PackedScene" uid="uid://timl11fn7e7r" path="res://components/hitbox.tscn" id="15_606se"]
 [ext_resource type="PackedScene" uid="uid://cgg3yuwmr17cn" path="res://components/combat_manager.tscn" id="16_u1c27"]
 [ext_resource type="Script" uid="uid://bkqea6iys40et" path="res://scripts/custom_resources/DamageData.gd" id="17_q13i1"]
@@ -29,6 +30,9 @@ height = 1.4244629
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_606se"]
 radius = 20.029297
 height = 143.37975
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hmd22"]
+animation = &"roll"
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_pbfsw"]
 filter_enabled = true
@@ -66,6 +70,8 @@ states/slash_downward_slash/position = Vector2(605, 41)
 states/slash_low_slash/node = SubResource("AnimationNodeAnimation_2wuci")
 states/slash_low_slash/position = Vector2(605, 117)
 transitions = ["Start", "slash_downward_slash", SubResource("AnimationNodeStateMachineTransition_634y6"), "slash_downward_slash", "slash_low_slash", SubResource("AnimationNodeStateMachineTransition_efrwb"), "slash_downward_slash", "End", SubResource("AnimationNodeStateMachineTransition_7lmhl"), "slash_low_slash", "End", SubResource("AnimationNodeStateMachineTransition_dx0e4")]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_vb0ex"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pbfsw"]
 animation = &"idle"
@@ -268,13 +274,18 @@ graph_offset = Vector2(-40.717255, -105)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_pgbbb"]
 graph_offset = Vector2(-542, 177)
+nodes/output/position = Vector2(480, 160)
 nodes/Locomotion/node = SubResource("AnimationNodeStateMachine_7lmhl")
 nodes/Locomotion/position = Vector2(-260, 100)
 nodes/Combat/node = SubResource("AnimationNodeStateMachine_b88wv")
 nodes/Combat/position = Vector2(-260, 340)
 nodes/Blend2/node = SubResource("AnimationNodeBlend2_pbfsw")
 nodes/Blend2/position = Vector2(60, 160)
-node_connections = [&"output", 0, &"Blend2", &"Blend2", 0, &"Locomotion", &"Blend2", 1, &"Combat"]
+nodes/EvadeOneShot/node = SubResource("AnimationNodeOneShot_vb0ex")
+nodes/EvadeOneShot/position = Vector2(300, 240)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_hmd22")
+nodes/Animation/position = Vector2(100, 460)
+node_connections = [&"output", 0, &"EvadeOneShot", &"Blend2", 0, &"Locomotion", &"Blend2", 1, &"Combat", &"EvadeOneShot", 0, &"Blend2", &"EvadeOneShot", 1, &"Animation"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xg4h0"]
 radius = 10.0
@@ -291,15 +302,14 @@ stamina = 10.0
 armor = 10.0
 metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
 
-[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_uiwii"]
-
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("locomotion_state_machine", "combat_state_machine", "camera_spring_arm", "camera")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("locomotion_state_machine", "combat_state_machine", "camera_spring_arm", "camera", "hurtbox")]
 collision_layer = 2
 script = ExtResource("1_om8sx")
 locomotion_state_machine = NodePath("LocomotionStateMachine")
 combat_state_machine = NodePath("CombatStateMachine")
 camera_spring_arm = NodePath("SpringArm3D")
 camera = NodePath("SpringArm3D/Camera3D")
+hurtbox = NodePath("Hurtbox")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="." node_paths=PackedStringArray("player")]
 top_level = true
@@ -323,8 +333,8 @@ shape = SubResource("CapsuleShape3D_om8sx")
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Visuals/maria_animation_rig/Maria Model" index="0"]
-bones/0/position = Vector3(-0.6285493, 0.8331382, -99.53878)
-bones/0/rotation = Quaternion(-0.67119086, -0.10132148, 0.09124431, 0.7286366)
+bones/0/position = Vector3(-1.108103, 0.41263604, -99.527756)
+bones/0/rotation = Quaternion(-0.6723538, -0.10126025, 0.090456605, 0.7276706)
 bones/1/position = Vector3(0.004652034, 5.2453175, 0.2588343)
 bones/1/rotation = Quaternion(0.17256026, 0.019894145, 0.017212382, 0.9846477)
 bones/2/position = Vector3(1.5494886e-06, 11.066815, -2.5629437e-05)
@@ -332,7 +342,7 @@ bones/2/rotation = Quaternion(-0.0028687306, 0.010431574, -0.003745064, 0.999934
 bones/3/position = Vector3(1.18278024e-07, 8.141912, 3.1087864e-05)
 bones/3/rotation = Quaternion(0.09923728, 0.0110522695, -0.0039690332, 0.9949946)
 bones/4/rotation = Quaternion(-0.10516618, 0.015094527, 0.010295424, 0.99428684)
-bones/5/rotation = Quaternion(-0.122193925, 0.06322186, -0.03625917, 0.9898268)
+bones/5/rotation = Quaternion(-0.12161038, 0.0637727, -0.03663418, 0.98984945)
 bones/7/rotation = Quaternion(-0.5966473, -0.40762502, 0.3592911, -0.5905623)
 bones/8/position = Vector3(-1.3557989e-05, 9.14368, -2.5742352e-06)
 bones/8/rotation = Quaternion(0.55712914, -0.09583763, 0.2426966, 0.7883658)
@@ -418,26 +428,26 @@ bones/53/position = Vector3(-7.248385e-07, 1.2975874, 1.8949086e-06)
 bones/53/rotation = Quaternion(0.4829382, 0.0004322212, 0.0010074447, 0.87565374)
 bones/54/position = Vector3(-9.285759e-07, 2.012996, 1.9082036e-06)
 bones/55/position = Vector3(9.688754, -5.685233, -1.6886241)
-bones/55/rotation = Quaternion(0.05115282, 0.2871213, 0.9534745, -0.0763626)
+bones/55/rotation = Quaternion(0.051453646, 0.2856478, 0.9536744, -0.07914055)
 bones/56/position = Vector3(-2.5894524e-06, 43.16797, 1.591859e-05)
-bones/56/rotation = Quaternion(-0.29829177, -0.036076713, 0.021356266, 0.9535536)
+bones/56/rotation = Quaternion(-0.29421616, -0.034305457, 0.022018554, 0.9548693)
 bones/57/position = Vector3(4.5675883e-06, 40.817726, -4.5743236e-06)
-bones/57/rotation = Quaternion(0.28257164, -0.0363858, -0.032529358, 0.9580038)
+bones/57/rotation = Quaternion(0.27820712, -0.036868628, -0.034933828, 0.9591773)
 bones/58/position = Vector3(-1.630595e-07, 18.000011, -4.6231644e-06)
-bones/58/rotation = Quaternion(0.51399136, -0.0056042783, -0.024603406, 0.85742426)
+bones/58/rotation = Quaternion(0.51401097, -0.0055419295, -0.024708038, 0.8574098)
 bones/59/position = Vector3(3.5899614e-06, 13.768198, 1.1062344e-07)
 bones/60/position = Vector3(-9.68877, -5.685183, -1.6886227)
-bones/60/rotation = Quaternion(-0.10433792, 0.14035386, 0.98087853, 0.0853927)
+bones/60/rotation = Quaternion(-0.104943186, 0.14173436, 0.98079747, 0.08327579)
 bones/61/position = Vector3(-1.8751912e-06, 43.168003, 2.4260144e-05)
-bones/61/rotation = Quaternion(-0.32283235, 0.060911722, 0.0015607426, 0.94449276)
+bones/61/rotation = Quaternion(-0.3271496, 0.061240297, 0.0036759663, 0.942979)
 bones/62/position = Vector3(6.010563e-07, 40.817703, -7.9876345e-06)
-bones/62/rotation = Quaternion(0.42476797, 0.04678104, 0.07018742, 0.90136427)
+bones/62/rotation = Quaternion(0.42669824, 0.04597845, 0.066762984, 0.9007538)
 bones/63/position = Vector3(1.128687e-06, 17.99999, 2.6994949e-06)
-bones/63/rotation = Quaternion(0.5210565, 0.003978013, 0.020889213, 0.8532573)
+bones/63/rotation = Quaternion(0.5211696, 0.004132927, 0.02083985, 0.8531887)
 bones/64/position = Vector3(4.1648364e-06, 13.768166, -9.5303403e-07)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Visuals/maria_animation_rig/Maria Model/Skeleton3D" index="0"]
-transform = Transform3D(-0.2074433, 0.48188952, 0.85132253, 0.29023382, 0.8613872, -0.41686484, -0.9342013, 0.1606067, -0.31854966, -10.948225, 34.850464, -100.24276)
+transform = Transform3D(-0.2057842, 0.48278034, 0.85122037, 0.287843, 0.86121905, -0.41886473, -0.9353071, 0.15882187, -0.31619015, -11.382863, 34.44107, -100.34263)
 bone_name = "mixamorig_RightHand"
 bone_idx = 34
 
@@ -460,6 +470,7 @@ idle_state_path = NodePath("../Idle")
 sprint_state_path = NodePath("../Sprint")
 jump_state_path = NodePath("../Jump")
 fall_state_path = NodePath("../Fall")
+evade_state_path = NodePath("../Evade")
 player = NodePath("../..")
 
 [node name="Sprint" type="Node" parent="LocomotionStateMachine" node_paths=PackedStringArray("player")]
@@ -493,6 +504,14 @@ idle_state_path = NodePath("../Idle")
 sprint_state_path = NodePath("../Sprint")
 free_speed = 2.0
 target_locked_speed = 2.0
+player = NodePath("../..")
+
+[node name="Evade" type="Node" parent="LocomotionStateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("12_hmd22")
+idle_state_path = NodePath("../Idle")
+walk_state_path = NodePath("../Walk")
+free_speed = 3.0
+target_locked_speed = 3.0
 player = NodePath("../..")
 
 [node name="CombatStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
@@ -535,6 +554,9 @@ parameters/Locomotion/Falling/Blend2/blend_amount = 0.5
 parameters/Locomotion/FreeLocomotion/blend_position = 0.0
 parameters/Locomotion/TargetedLocomotion/blend_position = Vector2(0, 0)
 parameters/Blend2/blend_amount = 1.0
+parameters/EvadeOneShot/active = false
+parameters/EvadeOneShot/internal_active = false
+parameters/EvadeOneShot/request = 0
 script = ExtResource("6_6aici")
 player = NodePath("..")
 
@@ -556,7 +578,6 @@ hitbox = NodePath("../Visuals/maria_animation_rig/Maria Model/Skeleton3D/BoneAtt
 [node name="Hurtbox" parent="." instance=ExtResource("19_pylmc")]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = SubResource("AudioStreamPolyphonic_uiwii")
 
 [connection signal="body_entered" from="TargetManager" to="TargetManager" method="_on_body_entered"]
 [connection signal="body_exited" from="TargetManager" to="TargetManager" method="_on_body_exited"]

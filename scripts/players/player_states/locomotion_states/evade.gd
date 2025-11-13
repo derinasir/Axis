@@ -1,0 +1,56 @@
+extends LocomotionState
+
+@export_node_path("State") var idle_state_path
+@onready var idle_state = get_node(idle_state_path)
+
+@export_node_path("State") var walk_state_path
+@onready var walk_state = get_node(walk_state_path)
+
+
+var should_exit_state: bool = false
+var evade_dir: Vector3
+
+func enter() -> void:
+	super()
+	should_exit_state = false
+	evade_dir = player.direction_vec
+	player.hurtbox.monitoring = false
+	%AnimationTree.request_evade_one_shot()
+
+func process(delta: float) -> State:
+	super(delta)
+	if should_exit_state:
+		return idle_state if player.direction_vec == Vector3.ZERO else walk_state
+	
+	return null
+
+
+func physics_process(delta: float) -> State:
+	player.velocity = evade_dir * free_speed
+
+
+	var target_rotation = atan2(-player.direction_vec.x, -player.direction_vec.z)
+	if player.velocity:
+		player.rotation.y = lerp_angle(player.rotation.y, target_rotation, 0.09)
+
+	return null
+
+
+func exit() -> void:
+	super()
+	player.hurtbox.monitoring = true
+
+
+func transform_to_target_space() -> Vector3:
+	var target_basis = Basis(Vector3.UP, atan2(to_target.x, to_target.z))
+	return (target_basis * Vector3(-player.input_dir.x, 0, player.input_dir.y))
+	
+
+func transform_to_camera_space() -> Vector3:
+	return (
+		player.camera.global_basis * Vector3(player.input_dir.x, 0, -player.input_dir.y)
+	)
+
+
+func toggle_return_condition():
+	should_exit_state = true
