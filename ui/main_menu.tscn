@@ -33,16 +33,11 @@ theme_override_constants/separation = 10
 
 [node name="CastleGuard" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Castle Guard"
-
-[node name="Maria" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Maria"
+text = "Play"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/CastleGuard" to="." method="_on_castle_guard_pressed"]
-[connection signal="pressed" from="VBoxContainer/Maria" to="." method="_on_maria_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
