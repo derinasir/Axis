@@ -4,6 +4,11 @@ extends PlayerState
 @export_node_path("State") var attack1_state_path
 @onready var attack1_state = get_node(attack1_state_path)
 
+@export_node_path("State") var heavy_attack1_state_path
+@onready var heavy_attack1_state = get_node(heavy_attack1_state_path)
+
+
+
 var combo_window_open := false
 
 func enter() -> void:
@@ -16,5 +21,8 @@ func input(event: InputEvent) -> State:
 	
 	if event.is_action_pressed("Attack"):
 		return attack1_state
+	
+	if event.is_action_pressed("Heavy Attack"):
+		return heavy_attack1_state
 	
 	return null

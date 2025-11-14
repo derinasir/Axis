@@ -30,7 +30,7 @@ func process(delta: float) -> State:
 			return sprint_state
 		else:
 			return walk_state
-
+	
 	return null
 
 
