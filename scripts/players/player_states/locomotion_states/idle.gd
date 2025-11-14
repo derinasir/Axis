@@ -31,7 +31,7 @@ func physics_process(delta: float) -> State:
 func input(event: InputEvent) -> State:
 	super(event)
 	
-	if event.is_action_pressed("Jump"):
+	if event.is_action_pressed("Jump") and player.combat_manager.has_enough_stamina(player.jump_stamina_cost):
 		return jump_state
 	
 	return null

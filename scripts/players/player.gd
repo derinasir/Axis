@@ -42,6 +42,12 @@ var spring_arm_offset: Vector3
 const SPRING_ARM_DEFAULT_OFFSET := Vector3(0, 2, 0)
 
 
+# STAMINA COSTS
+@export var jump_stamina_cost: float = 15.0
+@export var evade_stamina_cost: float = 25.0
+
+
+
 func _ready() -> void:
 	locomotion_state_machine.initialize()
 	combat_state_machine.initialize()

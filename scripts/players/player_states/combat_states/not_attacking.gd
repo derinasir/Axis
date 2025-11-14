@@ -22,7 +22,7 @@ func input(event: InputEvent) -> State:
 	if event.is_action_pressed("Attack") and player.combat_manager.has_enough_stamina(attack1_state.stamina_cost):
 		return attack1_state
 	
-	if event.is_action_pressed("Heavy Attack"):
+	if event.is_action_pressed("Heavy Attack") and player.combat_manager.has_enough_stamina(heavy_attack1_state.stamina_cost):
 		if player.is_on_floor() and not player.is_sprinting:
 			return heavy_attack1_state
 	

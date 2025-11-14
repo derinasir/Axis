@@ -93,6 +93,7 @@ layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_ymcdr")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jxel8")
 max_value = 50.0
+allow_lesser = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_coq8p")

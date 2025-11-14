@@ -20,6 +20,7 @@ func enter() -> void:
 	evade_dir = player.direction_vec
 	player.hurtbox.monitoring = false
 	%AnimationTree.request_evade_one_shot()
+	player.combat_manager.drain_stamina(player.evade_stamina_cost)
 
 func process(delta: float) -> State:
 	super(delta)

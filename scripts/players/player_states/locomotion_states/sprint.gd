@@ -36,10 +36,10 @@ func input(event: InputEvent) -> State:
 	if event.is_action_released("Sprint"):
 		return walk_state
 	
-	if event.is_action_pressed("Jump"):
+	if event.is_action_pressed("Jump") and player.combat_manager.has_enough_stamina(player.jump_stamina_cost):
 		return jump_state
 	
-	if event.is_action_pressed("Evade"):
+	if event.is_action_pressed("Evade") and player.combat_manager.has_enough_stamina(player.evade_stamina_cost):
 		return evade_state
 	
 	return null

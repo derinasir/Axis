@@ -11,6 +11,7 @@ extends LocomotionState
 func enter() -> void:
 	super()
 	player.velocity.y = player.sprint_jump_speed if Input.is_action_pressed("Sprint") else player.jump_speed
+	player.combat_manager.drain_stamina(player.jump_stamina_cost)
 	#var plane_velocity = Vector3(player.velocity.x, 0, player.velocity.z)
 	#free_speed = plane_velocity.length()
 	#target_locked_speed = plane_velocity.length()
