@@ -6,6 +6,10 @@ extends LocomotionState
 @export_node_path("State") var walk_state_path
 @onready var walk_state = get_node(walk_state_path)
 
+@export_node_path("State") var sprint_state_path
+@onready var sprint_state = get_node(sprint_state_path)
+
+
 
 var should_exit_state: bool = false
 var evade_dir: Vector3
@@ -20,8 +24,13 @@ func enter() -> void:
 func process(delta: float) -> State:
 	super(delta)
 	if should_exit_state:
-		return idle_state if player.direction_vec == Vector3.ZERO else walk_state
-	
+		if not player.direction_vec:
+			return idle_state
+		elif Input.is_action_pressed("Sprint"):
+			return sprint_state
+		else:
+			return walk_state
+
 	return null
 
 

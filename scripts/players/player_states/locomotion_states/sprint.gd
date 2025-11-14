@@ -11,6 +11,10 @@ extends LocomotionState
 @export_node_path("State") var jump_state_path
 @onready var jump_state = get_node(jump_state_path)
 
+@export_node_path("State") var evade_state_path
+@onready var evade_state = get_node(evade_state_path)
+
+
 
 func physics_process(delta: float) -> State:
 	super(delta)
@@ -28,5 +32,8 @@ func input(event: InputEvent) -> State:
 	
 	if event.is_action_pressed("Jump"):
 		return jump_state
+	
+	if event.is_action_pressed("Evade"):
+		return evade_state
 	
 	return null
