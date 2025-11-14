@@ -16,6 +16,12 @@ extends LocomotionState
 
 
 
+func enter() -> void:
+	super()
+	player.is_sprinting = true
+
+
+
 func physics_process(delta: float) -> State:
 	super(delta)
 	
@@ -37,3 +43,8 @@ func input(event: InputEvent) -> State:
 		return evade_state
 	
 	return null
+
+
+func exit() -> void:
+	super()
+	player.is_sprinting = false

@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://ba8s637itq84" path="res://scripts/players/player_states/combat_states/not_attacking.gd" id="8_urp6f"]
 [ext_resource type="Script" uid="uid://ds5pgpcim42dg" path="res://scripts/players/player_states/combat_states/attack_2.gd" id="9_ivps1"]
 [ext_resource type="Script" uid="uid://bq8y0x7ps1s5v" path="res://scripts/players/player_components/target_manager.gd" id="9_rnf4f"]
-[ext_resource type="Script" uid="uid://cst66y2l1p0lc" path="res://scripts/players/player_states/combat_states/attack_3.gd" id="10_urp6f"]
+[ext_resource type="Script" uid="uid://cst66y2l1p0lc" path="res://scripts/players/player_states/combat_states/heavy_attack_1.gd" id="10_urp6f"]
 [ext_resource type="Script" uid="uid://bikhvdq18ss26" path="res://scripts/players/player_states/locomotion_states/jump.gd" id="11_5tmop"]
 [ext_resource type="Script" uid="uid://b011l7nwbtjp5" path="res://scripts/players/player_states/locomotion_states/fall.gd" id="12_7ahtn"]
 [ext_resource type="Script" uid="uid://dve76yn62fbds" path="res://scripts/players/player_states/locomotion_states/evade.gd" id="12_hmd22"]

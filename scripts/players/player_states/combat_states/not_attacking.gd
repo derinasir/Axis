@@ -23,6 +23,7 @@ func input(event: InputEvent) -> State:
 		return attack1_state
 	
 	if event.is_action_pressed("Heavy Attack"):
-		return heavy_attack1_state
+		if player.is_on_floor() and not player.is_sprinting:
+			return heavy_attack1_state
 	
 	return null

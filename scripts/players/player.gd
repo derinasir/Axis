@@ -16,6 +16,7 @@ var is_attacking := false
 
 # LOCOMOTION
 var speed: float
+var is_sprinting: bool
 @export var jump_speed := 5.0
 @export var sprint_jump_speed := 5.0
 @export var acceleration = 10.0
