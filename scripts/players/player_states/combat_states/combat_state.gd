@@ -3,6 +3,7 @@ extends PlayerState
 
 
 @export var animation_name: String
+@export var stamina_cost: float = 20.0
 @export_node_path("State") var not_attacking_state_path
 @onready var not_attacking_state = get_node(not_attacking_state_path)
 
@@ -21,6 +22,7 @@ func enter() -> void:
 	anim_state_machine = %AnimationTree.get("parameters/Combat/playback")
 	anim_state_machine.travel(animation_name)
 
+	player.combat_manager.drain_stamina(stamina_cost)
 
 func process(delta) -> State:
 	super(delta)

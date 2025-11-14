@@ -19,7 +19,7 @@ func enter() -> void:
 func input(event: InputEvent) -> State:
 	super(event)
 	
-	if event.is_action_pressed("Attack"):
+	if event.is_action_pressed("Attack") and player.combat_manager.has_enough_stamina(attack1_state.stamina_cost):
 		return attack1_state
 	
 	if event.is_action_pressed("Heavy Attack"):

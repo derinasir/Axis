@@ -2,12 +2,14 @@ class_name Player
 extends CharacterBody3D
 
 
-@export var locomotion_state_machine: StateMachine
-@export var combat_state_machine: StateMachine
-@export var camera_spring_arm: SpringArm3D
-@export var camera: Camera3D
+@onready var locomotion_state_machine: StateMachine = $LocomotionStateMachine
+@onready var combat_state_machine: StateMachine = $CombatStateMachine
+@onready var camera_spring_arm: SpringArm3D = $SpringArm3D
+@onready var camera: Camera3D = $SpringArm3D/Camera3D
 
 @export var hurtbox: Hurtbox
+
+@onready var combat_manager: Node = $CombatManager
 
 
 # ATTACKING
@@ -50,6 +52,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	locomotion_state_machine.process(delta)
 	combat_state_machine.process(delta)
+	
+	if not is_attacking and combat_manager.combat_stats.stamina < 50:
+		combat_manager.combat_stats.stamina += 10 * delta
 
 
 func _physics_process(delta: float) -> void:

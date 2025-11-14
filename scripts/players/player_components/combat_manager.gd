@@ -26,6 +26,13 @@ func take_damage(data: DamageData):
 		took_damage.emit(data)
 
 
+func has_enough_stamina(amount: float) -> bool:
+	return (combat_stats.stamina - amount > 0)
+
+
+func drain_stamina(amount: float) -> void:
+	combat_stats.stamina -= amount
+
 
 func _on_was_hit(data: DamageData):
 	take_damage(data)

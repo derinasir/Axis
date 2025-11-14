@@ -9,7 +9,7 @@ extends CombatState
 func input(event: InputEvent) -> State:
 	super(event)
 	
-	if event.is_action_pressed("Attack") and combo_window_open:
+	if event.is_action_pressed("Attack") and combo_window_open and player.combat_manager.has_enough_stamina(attack_2_state.stamina_cost):
 		anim_state_machine.travel(attack_2_state.animation_name)
 		return attack_2_state
 	
