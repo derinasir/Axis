@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://sg267t5mheeo"]
+[gd_scene load_steps=18 format=3 uid="uid://sg267t5mheeo"]
 
 [ext_resource type="Script" uid="uid://co76jhf4cxtkj" path="res://scripts/scenes/castle_guard_test_scene.gd" id="1_5dxip"]
 [ext_resource type="Texture2D" uid="uid://5gmx2rx0kq2d" path="res://assets/kenney_prototype_textures/Dark/texture_01.png" id="1_xkx7l"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://bcmwmukkthxk7" path="res://scripts/ui/player_hud/vitality_stats.gd" id="2_521ro"]
 [ext_resource type="PackedScene" uid="uid://bslaomoexm58a" path="res://entities/mock_enemy.tscn" id="3_521ro"]
 [ext_resource type="Script" uid="uid://bhqmmiil3ivhf" path="res://scripts/custom_resources/CombatStats.gd" id="4_ymcdr"]
+[ext_resource type="Material" uid="uid://b0a54d8f0avng" path="res://assets/materials/purple_test_mat1.tres" id="7_jxel8"]
+[ext_resource type="Material" uid="uid://s4isx22cl1cs" path="res://assets/materials/orange_test_mat1.tres" id="7_ymcdr"]
+[ext_resource type="Material" uid="uid://crca2g7xdosld" path="res://assets/materials/green_test_mat1.tres" id="8_rvrge"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_521ro"]
 bg_color = Color(0.77254903, 0, 0, 0.5019608)
@@ -107,7 +110,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2535429, 0.14372453, -0.13
 floor_max_angle = 1.0471976
 
 [node name="Enemies" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.116428256, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.016428255, 0)
 
 [node name="MockEnemy" parent="Enemies" instance=ExtResource("3_521ro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7000003, 0.050929874, -1.5)
@@ -133,6 +136,10 @@ combat_stats = SubResource("Resource_5dxip")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.088146, 0.050929874, 2.929635)
 combat_stats = SubResource("Resource_5dxip")
 
+[node name="MockEnemy7" parent="Enemies" instance=ExtResource("3_521ro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.388145, 3.9835718, 16.229635)
+combat_stats = SubResource("Resource_5dxip")
+
 [node name="WorldGeometry" type="Node3D" parent="."]
 
 [node name="Plane" type="CSGBox3D" parent="WorldGeometry"]
@@ -150,6 +157,7 @@ radius = 5.9
 height = 3.0375001
 sides = 16
 cone = true
+material = ExtResource("7_jxel8")
 
 [node name="CSGTorus3D" type="CSGTorus3D" parent="WorldGeometry/Obstacles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.100002, 3.2, -6.1000004)
@@ -159,12 +167,47 @@ inner_radius = 4.1
 outer_radius = 4.8
 sides = 16
 ring_sides = 5
+material = ExtResource("8_rvrge")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="WorldGeometry/Obstacles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.900002, 3.3500001, -13.650001)
 use_collision = true
 collision_mask = 2
 size = Vector3(6.4, 0.3, 3.5)
+material = ExtResource("7_ymcdr")
+
+[node name="Steps" type="Node3D" parent="WorldGeometry"]
+transform = Transform3D(-0.93969274, 0, -0.34202018, 0, 1, 0, 0.34202018, 0, -0.93969274, -12.2, 0, 16.5)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WorldGeometry/Steps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99999905, 3.5, 0)
+use_collision = true
+collision_mask = 2
+size = Vector3(4, 1, 6)
+material = ExtResource("7_ymcdr")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="WorldGeometry/Steps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0000014, 0.5, 0)
+use_collision = true
+collision_mask = 2
+size = Vector3(16, 1, 6)
+material = ExtResource("7_ymcdr")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="WorldGeometry/Steps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.000002, 1.5, 0)
+use_collision = true
+collision_mask = 2
+size = Vector3(12, 1, 6)
+material = ExtResource("7_ymcdr")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="WorldGeometry/Steps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0000019, 2.5, 0)
+use_collision = true
+collision_mask = 2
+size = Vector3(8, 1, 6)
+material = ExtResource("7_ymcdr")
+
+[node name="Node3D" type="Node3D" parent="WorldGeometry"]
 
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Reload" to="." method="_on_reload_pressed"]
