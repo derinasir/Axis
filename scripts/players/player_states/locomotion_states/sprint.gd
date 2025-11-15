@@ -11,6 +11,9 @@ extends LocomotionState
 @export_node_path("State") var jump_state_path
 @onready var jump_state = get_node(jump_state_path)
 
+@export_node_path("State") var fall_state_path
+@onready var fall_state = get_node(fall_state_path)
+
 @export_node_path("State") var evade_state_path
 @onready var evade_state = get_node(evade_state_path)
 
@@ -27,6 +30,9 @@ func physics_process(delta: float) -> State:
 	
 	if player.direction_vec == Vector3.ZERO:
 		return idle_state
+	
+	if not player.is_on_floor():
+		return fall_state
 	
 	return null
 
