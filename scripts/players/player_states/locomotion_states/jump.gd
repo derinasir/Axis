@@ -22,9 +22,4 @@ func physics_process(delta: float) -> State:
 	if player.velocity.y < 0:
 		return fall_state
 	
-
-
-	#if player.is_on_floor():
-		#return idle_state
-	
 	return null

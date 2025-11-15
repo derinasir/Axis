@@ -2,29 +2,20 @@ class_name Player
 extends CharacterBody3D
 
 
-@onready var locomotion_state_machine: StateMachine = $LocomotionStateMachine
-@onready var combat_state_machine: StateMachine = $CombatStateMachine
-@onready var camera_spring_arm: SpringArm3D = $SpringArm3D
-@onready var camera: Camera3D = $SpringArm3D/Camera3D
-
-@export var hurtbox: Hurtbox
-
-@onready var combat_manager: Node = $CombatManager
-
-
-# ATTACKING
-var is_attacking := false
-
-
 # LOCOMOTION
-var speed: float
-var is_sprinting: bool
 @export var jump_speed := 5.0
 @export var sprint_jump_speed := 5.0
 @export var acceleration = 10.0
 @export var deceleration = 10.0
 @export var air_acceleration = 2.0
 @export var air_deceleration = 2.0
+
+var speed: float
+var is_sprinting: bool
+
+
+# COMBAT
+var is_attacking := false
 
 
 # TARGETING
@@ -38,14 +29,21 @@ var direction_vec: Vector3 = Vector3.ZERO
 
 
 # CAMERA RIG
-var spring_arm_offset: Vector3
 const SPRING_ARM_DEFAULT_OFFSET := Vector3(0, 2, 0)
+var spring_arm_offset: Vector3
 
 
 # STAMINA COSTS
 @export var jump_stamina_cost: float = 15.0
 @export var evade_stamina_cost: float = 25.0
 
+
+@onready var locomotion_state_machine: StateMachine = $LocomotionStateMachine
+@onready var combat_state_machine: StateMachine = $CombatStateMachine
+@onready var camera_spring_arm: SpringArm3D = $SpringArm3D
+@onready var camera: Camera3D = $SpringArm3D/Camera3D
+@onready var combat_manager: Node = $CombatManager
+@onready var hurtbox: Hurtbox = $Hurtbox
 
 
 func _ready() -> void:
