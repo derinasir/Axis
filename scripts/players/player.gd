@@ -16,6 +16,7 @@ var is_sprinting: bool
 
 # COMBAT
 var is_attacking := false
+var is_evading: bool = false
 
 
 # TARGETING
@@ -33,7 +34,9 @@ const SPRING_ARM_DEFAULT_OFFSET := Vector3(0, 2, 0)
 var spring_arm_offset: Vector3
 
 
-# STAMINA COSTS
+# STAMINA
+const STAMINA_REGEN_RATE: float = 20.0
+@export var max_stamina: float = 100.0
 @export var jump_stamina_cost: float = 15.0
 @export var evade_stamina_cost: float = 25.0
 
@@ -57,8 +60,15 @@ func _process(delta: float) -> void:
 	locomotion_state_machine.process(delta)
 	combat_state_machine.process(delta)
 	
-	if not is_attacking and combat_manager.combat_stats.stamina < 50:
-		combat_manager.combat_stats.stamina += 10 * delta
+	var stamina_regeneration_conditions: bool = (
+		not is_attacking
+		and is_on_floor()
+		and not is_evading
+		and combat_manager.combat_stats.stamina < max_stamina
+	)
+	
+	if stamina_regeneration_conditions:
+		combat_manager.combat_stats.stamina += STAMINA_REGEN_RATE * delta
 
 
 func _physics_process(delta: float) -> void:

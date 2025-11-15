@@ -16,6 +16,7 @@ var evade_dir: Vector3
 
 func enter() -> void:
 	super()
+	player.is_evading = true
 	should_exit_state = false
 	evade_dir = player.direction_vec
 	player.hurtbox.monitoring = false
@@ -48,6 +49,7 @@ func physics_process(delta: float) -> State:
 
 func exit() -> void:
 	super()
+	player.is_evading = false
 	player.hurtbox.monitoring = true
 
 
