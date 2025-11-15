@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://bslaomoexm58a"]
+[gd_scene load_steps=17 format=3 uid="uid://bslaomoexm58a"]
 
 [ext_resource type="Script" uid="uid://exf3y54woksb" path="res://scripts/entities/mock_enemy.gd" id="1_mxc58"]
 [ext_resource type="PackedScene" uid="uid://hmbguqu4dkyv" path="res://components/hurtbox.tscn" id="2_mxc58"]
 [ext_resource type="Texture2D" uid="uid://cprtm1fqaf0vi" path="res://icon.svg" id="2_o5evs"]
 [ext_resource type="PackedScene" uid="uid://cgg3yuwmr17cn" path="res://components/combat_manager.tscn" id="5_hcruc"]
-[ext_resource type="Script" uid="uid://bkqea6iys40et" path="res://scripts/custom_resources/DamageData.gd" id="6_fjp5j"]
 [ext_resource type="PackedScene" uid="uid://timl11fn7e7r" path="res://components/hitbox.tscn" id="6_ribgu"]
 [ext_resource type="AudioStream" uid="uid://bugcrtvlbst1b" path="res://assets/sfx/quick-saber-cut.mp3" id="7_ld3am"]
 [ext_resource type="AudioStream" uid="uid://cm7m57ynxtlmd" path="res://assets/sfx/sword-slash-swoosh.mp3" id="7_ribgu"]
@@ -21,11 +20,6 @@ emission_energy_multiplier = 0.0
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o5evs"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bqxfe"]
-
-[sub_resource type="Resource" id="Resource_ribgu"]
-script = ExtResource("6_fjp5j")
-damage_value = 11.0
-metadata/_custom_type_script = "uid://bkqea6iys40et"
 
 [sub_resource type="Animation" id="Animation_ribgu"]
 length = 0.001
@@ -202,15 +196,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_o5evs")
 
 [node name="Hitbox" parent="." instance=ExtResource("6_ribgu")]
+collision_layer = 4
 
 [node name="Hurtbox" parent="." instance=ExtResource("2_mxc58")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_mask = 2
 
 [node name="CollisionShape3D" parent="Hurtbox" index="0"]
 shape = SubResource("CapsuleShape3D_bqxfe")
 
 [node name="CombatManager" parent="." node_paths=PackedStringArray("hurtbox", "hitbox") instance=ExtResource("5_hcruc")]
-damage_data = SubResource("Resource_ribgu")
 hurtbox = NodePath("../Hurtbox")
 hitbox = NodePath("../Hitbox")
 

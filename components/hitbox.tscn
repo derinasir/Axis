@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://p418wkocso5y" path="res://scripts/components/hitbox.gd" id="1_3l28h"]
 
 [node name="Hitbox" type="Area3D" groups=["hitbox"]]
+collision_layer = 0
+collision_mask = 0
 monitoring = false
 script = ExtResource("1_3l28h")
 
