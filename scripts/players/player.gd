@@ -3,24 +3,24 @@ extends CharacterBody3D
 
 
 # LOCOMOTION
-@export var jump_speed := 5.0
-@export var sprint_jump_speed := 5.0
-@export var acceleration = 10.0
-@export var deceleration = 10.0
-@export var air_acceleration = 2.0
-@export var air_deceleration = 2.0
+@export var jump_speed: float = 5.0
+@export var sprint_jump_speed: float = 5.0
+@export var acceleration: float = 10.0
+@export var deceleration: float = 10.0
+@export var air_acceleration: float = 2.0
+@export var air_deceleration: float = 2.0
 
 var speed: float
 var is_sprinting: bool
 
 
 # COMBAT
-var is_attacking := false
+var is_attacking: bool = false
 var is_evading: bool = false
 
 
 # TARGETING
-var is_target_locked := false
+var is_target_locked: bool = false
 var current_target: Node3D
 
 
@@ -30,7 +30,7 @@ var direction_vec: Vector3 = Vector3.ZERO
 
 
 # CAMERA RIG
-const SPRING_ARM_DEFAULT_OFFSET := Vector3(0, 2, 0)
+const SPRING_ARM_DEFAULT_OFFSET: Vector3 = Vector3(0, 2, 0)
 var spring_arm_offset: Vector3
 
 

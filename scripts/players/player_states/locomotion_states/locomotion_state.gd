@@ -2,8 +2,8 @@ class_name LocomotionState
 extends PlayerState
 
 
-@export var free_speed := 1.0
-@export var target_locked_speed := 1.0
+@export var free_speed: float = 1.0
+@export var target_locked_speed: float = 1.0
 
 var gravity_scale = 1
 

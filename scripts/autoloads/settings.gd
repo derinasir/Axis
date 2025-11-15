@@ -1,10 +1,10 @@
 extends Node
 
 
-var mouse_sensitivity := 2.0
-var gamepad_sensitivity := 5.0
-var camera_invert_h := false
-var camera_invert_v := false
+var mouse_sensitivity: float = 2.0
+var gamepad_sensitivity: float = 5.0
+var camera_invert_h: bool = false
+var camera_invert_v: bool = false
 
 
 var connected_gamepads: Array = Input.get_connected_joypads()

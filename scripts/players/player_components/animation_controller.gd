@@ -9,8 +9,8 @@ enum FreeBlend {
 
 @export var player: Player
 
-var locomotion_blend := Vector2.ZERO
-var desired_locomotion_blend := Vector2.ZERO 
+var locomotion_blend: Vector2 = Vector2.ZERO
+var desired_locomotion_blend: Vector2 = Vector2.ZERO 
 
 
 var jump_blend: float

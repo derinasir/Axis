@@ -9,7 +9,7 @@ extends PlayerState
 
 
 
-var combo_window_open := false
+var combo_window_open: bool = false
 
 func enter() -> void:
 	super()

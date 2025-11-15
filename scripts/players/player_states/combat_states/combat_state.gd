@@ -8,8 +8,8 @@ extends PlayerState
 @onready var not_attacking_state = get_node(not_attacking_state_path)
 
 var anim_state_machine: AnimationNodeStateMachinePlayback
-var combo_window_open := false
-var return_not_attacking_state := false
+var combo_window_open: bool = false
+var return_not_attacking_state: bool = false
 
 func _ready() -> void:
 	%AnimationTree.connect("animation_finished", _on_AnimationTree_animation_finished)

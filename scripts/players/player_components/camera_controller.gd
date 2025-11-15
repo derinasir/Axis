@@ -6,11 +6,11 @@ extends SpringArm3D
 @export var camera_smoothing: float = 10.0
 @export var target_lock_smoothing: float = 5.0
 
-var yaw := 0.0
-var pitch := 0.0
-var target_yaw := 0.0
-var target_pitch := 0.0
-var was_locked := false
+var yaw: float = 0.0
+var pitch: float = 0.0
+var target_yaw: float = 0.0
+var target_pitch: float = 0.0
+var was_locked: bool = false
 
 
 func _ready() -> void:

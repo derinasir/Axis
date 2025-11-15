@@ -1,13 +1,13 @@
 extends Camera3D
 
 
-var shake_intensity := 0.0
-var active_shake_time := 0.0
+var shake_intensity: float = 0.0
+var active_shake_time: float = 0.0
 
-var shake_decay := 5.0
+var shake_decay: float = 5.0
 
-var shake_time := 0.0
-var shake_time_speed := 20.0
+var shake_time: float = 0.0
+var shake_time_speed: float = 20.0
 
 var noise = FastNoiseLite.new()
 

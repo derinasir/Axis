@@ -5,7 +5,7 @@ extends LocomotionState
 @onready var idle_state = get_node(idle_state_path)
 
 
-@export var speed_multiplier := 2.0
+@export var speed_multiplier: float = 2.0
 
 
 
