@@ -5,11 +5,15 @@ extends CombatState
 @onready var attack_2_state = get_node(attack_2_state_path)
 
 
-
 func input(event: InputEvent) -> State:
 	super(event)
 	
-	if event.is_action_pressed("Attack") and combo_window_open and player.combat_manager.has_enough_stamina(attack_2_state.stamina_cost):
+	var attack_advance_conditions: bool = (
+		combo_window_open
+		and player.combat_manager.has_enough_stamina(attack_2_state.stamina_cost)
+	)
+	
+	if event.is_action_pressed("Attack") and attack_advance_conditions:
 		anim_state_machine.travel(attack_2_state.animation_name)
 		return attack_2_state
 	
