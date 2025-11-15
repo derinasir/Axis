@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=4 uid="uid://dx47gkoyf6v1n"]
+[gd_scene load_steps=30 format=4 uid="uid://dx47gkoyf6v1n"]
 
 [ext_resource type="Texture2D" uid="uid://bhsgv7yfdi0pu" path="res://assets/models/smashable_objects/pumpkin/pumpkin_pieces_colormap.png" id="1_7t7ub"]
 [ext_resource type="Script" uid="uid://5r73l78gbdor" path="res://scripts/smashable_objects/model_breaker.gd" id="1_qkqug"]
+[ext_resource type="AudioStream" uid="uid://ccsuh27hxuqc8" path="res://assets/sfx/slime-splat-4.mp3" id="3_81x2w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_14lfg"]
 resource_name = "colormap"
@@ -576,3 +577,6 @@ shape = SubResource("ConvexPolygonShape3D_0xt7d")
 [node name="pumpkin_cell_006" type="MeshInstance3D" parent="StaticBody3D8"]
 mesh = SubResource("ArrayMesh_kp44d")
 skeleton = NodePath("")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_81x2w")
