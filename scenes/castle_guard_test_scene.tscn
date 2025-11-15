@@ -6,9 +6,9 @@
 [ext_resource type="Script" uid="uid://bcmwmukkthxk7" path="res://scripts/ui/player_hud/vitality_stats.gd" id="2_521ro"]
 [ext_resource type="PackedScene" uid="uid://bslaomoexm58a" path="res://entities/mock_enemy.tscn" id="3_521ro"]
 [ext_resource type="Script" uid="uid://bhqmmiil3ivhf" path="res://scripts/custom_resources/CombatStats.gd" id="4_ymcdr"]
-[ext_resource type="Material" uid="uid://b0a54d8f0avng" path="res://assets/materials/purple_test_mat1.tres" id="7_jxel8"]
-[ext_resource type="Material" uid="uid://s4isx22cl1cs" path="res://assets/materials/orange_test_mat1.tres" id="7_ymcdr"]
-[ext_resource type="Material" uid="uid://crca2g7xdosld" path="res://assets/materials/green_test_mat1.tres" id="8_rvrge"]
+[ext_resource type="Material" uid="uid://b0a54d8f0avng" path="res://assets/materials/prototype_materials/purple_test_mat1.tres" id="7_jxel8"]
+[ext_resource type="Material" uid="uid://s4isx22cl1cs" path="res://assets/materials/prototype_materials/orange_test_mat1.tres" id="7_ymcdr"]
+[ext_resource type="Material" uid="uid://crca2g7xdosld" path="res://assets/materials/prototype_materials/green_test_mat1.tres" id="8_rvrge"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_521ro"]
 bg_color = Color(0.77254903, 0, 0, 0.5019608)
