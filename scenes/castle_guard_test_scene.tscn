@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://sg267t5mheeo"]
+[gd_scene load_steps=19 format=3 uid="uid://sg267t5mheeo"]
 
 [ext_resource type="Script" uid="uid://co76jhf4cxtkj" path="res://scripts/scenes/castle_guard_test_scene.gd" id="1_5dxip"]
 [ext_resource type="Texture2D" uid="uid://5gmx2rx0kq2d" path="res://assets/kenney_prototype_textures/Dark/texture_01.png" id="1_xkx7l"]
@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://b0a54d8f0avng" path="res://assets/materials/prototype_materials/purple_test_mat1.tres" id="7_jxel8"]
 [ext_resource type="Material" uid="uid://s4isx22cl1cs" path="res://assets/materials/prototype_materials/orange_test_mat1.tres" id="7_ymcdr"]
 [ext_resource type="Material" uid="uid://crca2g7xdosld" path="res://assets/materials/prototype_materials/green_test_mat1.tres" id="8_rvrge"]
+[ext_resource type="PackedScene" uid="uid://c7jk42std1eae" path="res://entities/smashable_objects/pumpkin.tscn" id="10_q5s2f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_521ro"]
 bg_color = Color(0.77254903, 0, 0, 0.5019608)
@@ -207,6 +208,11 @@ size = Vector3(8, 1, 6)
 material = ExtResource("7_ymcdr")
 
 [node name="Node3D" type="Node3D" parent="WorldGeometry"]
+
+[node name="Objects" type="Node3D" parent="."]
+
+[node name="pumpkin" parent="Objects" instance=ExtResource("10_q5s2f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 0, -1.9)
 
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Reload" to="." method="_on_reload_pressed"]

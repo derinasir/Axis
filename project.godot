@@ -137,7 +137,12 @@ Evade={
 
 3d_physics/layer_1="WorldGeometry"
 3d_physics/layer_2="PlayerPhysics"
-3d_physics/layer_3="Enemy"
+3d_physics/layer_3="EnemyPhysics"
+3d_physics/layer_4="ObjectPhysics"
+
+[physics]
+
+jolt_physics_3d/layer_4="Object"
 
 [rendering]
 
